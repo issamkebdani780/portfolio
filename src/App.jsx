@@ -10,18 +10,17 @@ import {
   TerminalWindow,
   ContactWindow,
   PhotosWindow,
-  ResumeWindow,
   TxtFileWindow,
   ImgFileWindow,
 } from "./componenets/Windows";
 import Safari from "./componenets/Safari";
+import Resume from "./componenets/Resume";
 
 // Wrap window content components with HOC
 const FinderWithWrapper = windowWrapper(FinderWindow);
 const PhotosWithWrapper = windowWrapper(PhotosWindow);
 const TerminalWithWrapper = windowWrapper(TerminalWindow);
 const ContactWithWrapper = windowWrapper(ContactWindow);
-const ResumeWithWrapper = windowWrapper(ResumeWindow);
 const TxtFileWithWrapper = windowWrapper(TxtFileWindow);
 const ImgFileWithWrapper = windowWrapper(ImgFileWindow);
 
@@ -46,7 +45,9 @@ const App = () => {
       <PhotosWithWrapper windowKey="photos" title="Gallery" />
       <TerminalWithWrapper windowKey="terminal" title="Terminal" />
       <ContactWithWrapper windowKey="contact" title="Contact" />
-      <ResumeWithWrapper windowKey="resume" title="Resume" />
+
+      {/* Resume — self-contained customFrame with react-pdf viewer */}
+      <Resume windowKey="resume" title="Resume.pdf" customFrame={true} windowStyle={{ width: 480 }} />
 
       <TxtFileWithWrapper
         windowKey="txtfile"
