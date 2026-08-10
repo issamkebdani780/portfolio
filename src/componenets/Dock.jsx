@@ -4,12 +4,19 @@ import { useGSAP } from "@gsap/react";
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 import { dockApps } from "../constant";
+import { useWindowsStore } from "../store/window";
 
 const BASE_SIZE = 56;
 const MAX_SIZE = 84;
 const DISTANCE_RANGE = 150;
 
-const Dock = ({ activeApp, setActiveApp, openApps = [] }) => {
+const Dock = () => {
+  const windows = useWindowsStore((state) => state.windows);
+  const activeWindow = useWindowsStore((state) => state.activeWindow);
+  const openWindow = useWindowsStore((state) => state.openWindow);
+  const minimizeWindow = useWindowsStore((state) => state.minimizeWindow);
+  const focusWindow = useWindowsStore((state) => state.focusWindow);
+
   const dockRef = useRef(null);
   const iconRefs = useRef([]);
   const bouncingRefs = useRef(new Set());
@@ -76,16 +83,17 @@ const Dock = ({ activeApp, setActiveApp, openApps = [] }) => {
   const handleAppClick = useCallback(
     (app, index) => {
       const iconEl = iconRefs.current[index];
+      const win = windows[app.id];
+      const isOpen = win?.isOpen;
+      const isMinimized = win?.isMinimized;
+      const isActive = activeWindow === app.id;
 
       // Bounce animation (macOS-style repeated bounce for opening)
       if (iconEl && !bouncingRefs.current.has(app.id)) {
         bouncingRefs.current.add(app.id);
 
-        const isAlreadyOpen =
-          openApps.includes(app.id) || activeApp === app.id;
-
-        if (isAlreadyOpen) {
-          // Single quick bounce for already-open apps
+        if (isOpen && !isMinimized) {
+          // Single quick bounce for already-open and active apps
           gsap
             .timeline({
               onComplete: () => bouncingRefs.current.delete(app.id),
@@ -93,7 +101,7 @@ const Dock = ({ activeApp, setActiveApp, openApps = [] }) => {
             .to(iconEl, { y: -20, duration: 0.15, ease: "power2.out" })
             .to(iconEl, { y: 0, duration: 0.3, ease: "bounce.out" });
         } else {
-          // Double bounce for opening a new app — classic macOS behavior
+          // Double bounce for opening a new app or restoring from minimized state — classic macOS behavior
           gsap
             .timeline({
               onComplete: () => bouncingRefs.current.delete(app.id),
@@ -105,11 +113,19 @@ const Dock = ({ activeApp, setActiveApp, openApps = [] }) => {
         }
       }
 
-      if (app.canOpen && setActiveApp) {
-        setActiveApp(app.id === activeApp ? null : app.id);
+      if (app.canOpen) {
+        if (!isOpen) {
+          openWindow(app.id);
+        } else if (isMinimized) {
+          focusWindow(app.id);
+        } else if (isActive) {
+          minimizeWindow(app.id);
+        } else {
+          focusWindow(app.id);
+        }
       }
     },
-    [activeApp, openApps, setActiveApp]
+    [windows, activeWindow, openWindow, focusWindow, minimizeWindow]
   );
 
   // Find the separator index (before Trash / last non-openable app)
@@ -126,7 +142,8 @@ const Dock = ({ activeApp, setActiveApp, openApps = [] }) => {
           style={{ opacity: 0 }}
         >
           {dockApps.map((app, index) => {
-            const isOpen = openApps.includes(app.id) || activeApp === app.id;
+            const win = windows[app.id];
+            const isOpen = win?.isOpen;
 
             return (
               <React.Fragment key={app.id}>

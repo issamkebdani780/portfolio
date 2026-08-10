@@ -1,8 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import dayjs from "dayjs";
 import { navLinks } from "../constant";
+import { useWindowsStore } from "../store/window";
 
-const NavBar = ({ activeApp, setActiveApp, theme = "dark", setTheme }) => {
+const NavBar = ({ theme = "dark", setTheme }) => {
+  const activeWindow = useWindowsStore((state) => state.activeWindow);
+  const openWindow = useWindowsStore((state) => state.openWindow);
+
   const [currentTime, setCurrentTime] = useState(dayjs().format("ddd MMM D h:mm A"));
   const [isModeOpen, setIsModeOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -27,9 +31,7 @@ const NavBar = ({ activeApp, setActiveApp, theme = "dark", setTheme }) => {
   }, []);
 
   const handleNavClick = (type) => {
-    if (setActiveApp) {
-      setActiveApp(type);
-    }
+    openWindow(type);
   };
 
   const handleThemeChange = (newTheme) => {
@@ -45,7 +47,7 @@ const NavBar = ({ activeApp, setActiveApp, theme = "dark", setTheme }) => {
       <div className="flex items-center gap-4">
         {/* Apple Logo / Portfolio Identifier */}
         <div className="flex items-center gap-2 cursor-pointer font-semibold hover:opacity-80 transition-opacity">
-          <span className="text-base leading-none"></span>
+          <span className="text-base leading-none"></span>
           <span className="font-bold text-sm tracking-tight">Issam's Portfolio</span>
         </div>
 
@@ -56,7 +58,7 @@ const NavBar = ({ activeApp, setActiveApp, theme = "dark", setTheme }) => {
               <button
                 onClick={() => handleNavClick(link.type)}
                 className={`text-xs font-medium cursor-pointer transition-colors duration-150 px-2 py-0.5 rounded ${
-                  activeApp === link.type
+                  activeWindow === link.type
                     ? "bg-white/30 dark:bg-white/20 font-semibold"
                     : "hover:bg-white/20 dark:hover:bg-white/10"
                 }`}
