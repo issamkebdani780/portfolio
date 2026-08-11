@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { locations, blogPosts, techStack, socials, photosLinks, gallery } from "../constant";
 import { useWindowsStore } from "../store/window";
+import useLocationStore from "../store/location";
 
 export const FinderWindow = () => {
-  const [activeTab, setActiveTab] = useState("work");
-  const currentLocation = locations[activeTab];
+  const activeLocation = useLocationStore((state) => state.activeLocation);
+  const setActiveLocation = useLocationStore((state) => state.setActiveLocation);
   const openWindow = useWindowsStore((state) => state.openWindow);
 
   const handleItemDoubleClick = (item) => {
@@ -29,11 +30,11 @@ export const FinderWindow = () => {
         <ul>
           {Object.keys(locations).map((key) => {
             const loc = locations[key];
-            const isActive = activeTab === key;
+            const isActive = activeLocation?.type === loc.type;
             return (
               <li
                 key={key}
-                onClick={() => setActiveTab(key)}
+                onClick={() => setActiveLocation(loc)}
                 className={isActive ? "active" : "not-active"}
               >
                 <img src={loc.icon} alt={loc.name} className="dark:invert" />
@@ -46,7 +47,7 @@ export const FinderWindow = () => {
 
       {/* Main Content Pane */}
       <ul className="content flex-1 relative min-h-[400px]">
-        {currentLocation?.children?.map((item) => (
+        {activeLocation?.children?.map((item) => (
           <li
             key={item.id}
             onDoubleClick={() => handleItemDoubleClick(item)}
