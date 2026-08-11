@@ -10,19 +10,17 @@ import {
   TerminalWindow,
   ContactWindow,
   PhotosWindow,
-  TxtFileWindow,
-  ImgFileWindow,
 } from "./componenets/Windows";
 import Safari from "./componenets/Safari";
 import Resume from "./componenets/Resume";
+import TxtFileWindow from "./windows/text";
+import ImgFileWindow from "./windows/Image";
 
 // Wrap window content components with HOC
 const FinderWithWrapper = windowWrapper(FinderWindow);
 const PhotosWithWrapper = windowWrapper(PhotosWindow);
 const TerminalWithWrapper = windowWrapper(TerminalWindow);
 const ContactWithWrapper = windowWrapper(ContactWindow);
-const TxtFileWithWrapper = windowWrapper(TxtFileWindow);
-const ImgFileWithWrapper = windowWrapper(ImgFileWindow);
 
 const App = () => {
   const windows = useWindowsStore((state) => state.windows);
@@ -49,14 +47,16 @@ const App = () => {
       {/* Resume — self-contained customFrame with react-pdf viewer */}
       <Resume windowKey="resume" title="Resume.pdf" customFrame={true} windowStyle={{ width: 480 }} />
 
-      <TxtFileWithWrapper
+      <TxtFileWindow
         windowKey="txtfile"
         title={windows.txtfile?.data?.name || "Document"}
+        customFrame={true}
       />
 
-      <ImgFileWithWrapper
+      <ImgFileWindow
         windowKey="imgfile"
         title={windows.imgfile?.data?.name || "Image Preview"}
+        customFrame={true}
       />
 
       {/* macOS Dock */}
