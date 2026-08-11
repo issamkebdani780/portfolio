@@ -8,19 +8,18 @@ import { useWindowsStore } from "./store/window";
 import {
   FinderWindow,
   TerminalWindow,
-  ContactWindow,
   PhotosWindow,
 } from "./componenets/Windows";
 import Safari from "./componenets/Safari";
 import Resume from "./componenets/Resume";
 import TxtFileWindow from "./windows/text";
 import ImgFileWindow from "./windows/Image";
+import Contact from "./componenets/Conatct";
 
 // Wrap window content components with HOC
 const FinderWithWrapper = windowWrapper(FinderWindow);
 const PhotosWithWrapper = windowWrapper(PhotosWindow);
 const TerminalWithWrapper = windowWrapper(TerminalWindow);
-const ContactWithWrapper = windowWrapper(ContactWindow);
 
 const App = () => {
   const windows = useWindowsStore((state) => state.windows);
@@ -42,7 +41,7 @@ const App = () => {
       <Safari windowKey="safari" title="Articles" customFrame={true} windowStyle={{ width: 520 }} />
       <PhotosWithWrapper windowKey="photos" title="Gallery" />
       <TerminalWithWrapper windowKey="terminal" title="Terminal" />
-      <ContactWithWrapper windowKey="contact" title="Contact" />
+      <Contact windowKey="contact" title="Contact Me" customFrame={true} windowStyle={{ width: 540 }} />
 
       {/* Resume — self-contained customFrame with react-pdf viewer */}
       <Resume windowKey="resume" title="Resume.pdf" customFrame={true} windowStyle={{ width: 480 }} />
