@@ -57,11 +57,10 @@ const NavBar = ({ theme = "dark", setTheme }) => {
             <li key={link.id}>
               <button
                 onClick={() => handleNavClick(link.type)}
-                className={`text-xs font-medium cursor-pointer transition-colors duration-150 px-2 py-0.5 rounded ${
-                  activeWindow === link.type
+                className={`text-xs font-medium cursor-pointer transition-colors duration-150 px-2 py-0.5 rounded ${activeWindow === link.type
                     ? "bg-white/30 dark:bg-white/20 font-semibold"
                     : "hover:bg-white/20 dark:hover:bg-white/10"
-                }`}
+                  }`}
               >
                 {link.name}
               </button>
@@ -96,9 +95,8 @@ const NavBar = ({ theme = "dark", setTheme }) => {
         {/* Control Center / Theme Switcher Icon */}
         <button
           onClick={() => setIsModeOpen((prev) => !prev)}
-          className={`p-1 rounded transition-colors ${
-            isModeOpen ? "bg-white/30 dark:bg-white/20" : "hover:bg-white/20 dark:hover:bg-white/10"
-          }`}
+          className={`p-1 rounded transition-colors ${isModeOpen ? "bg-white/30 dark:bg-white/20" : "hover:bg-white/20 dark:hover:bg-white/10"
+            }`}
           title="Control Center"
         >
           <img
@@ -113,22 +111,20 @@ const NavBar = ({ theme = "dark", setTheme }) => {
           <div className="absolute top-8 right-0 w-44 bg-white/70 dark:bg-gray-900/80 backdrop-blur-2xl border border-gray-200/50 dark:border-gray-700/50 rounded-xl shadow-2xl p-1.5 z-50 text-xs font-medium animate-fadeIn">
             <button
               onClick={() => handleThemeChange("light")}
-              className={`w-full flex items-center justify-between px-3 py-1.5 rounded-lg text-left transition-colors ${
-                theme === "light"
+              className={`w-full flex items-center justify-between px-3 py-1.5 rounded-lg text-left transition-colors ${theme === "light"
                   ? "bg-blue-500 text-white font-semibold"
                   : "text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800/60"
-              }`}
+                }`}
             >
               <span>Light Mode</span>
               {theme === "light" && <span>✓</span>}
             </button>
             <button
               onClick={() => handleThemeChange("dark")}
-              className={`w-full flex items-center justify-between px-3 py-1.5 rounded-lg text-left transition-colors mt-0.5 ${
-                theme === "dark"
+              className={`w-full flex items-center justify-between px-3 py-1.5 rounded-lg text-left transition-colors mt-0.5 ${theme === "dark"
                   ? "bg-blue-500 text-white font-semibold"
                   : "text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800/60"
-              }`}
+                }`}
             >
               <span>Dark Mode</span>
               {theme === "dark" && <span>✓</span>}

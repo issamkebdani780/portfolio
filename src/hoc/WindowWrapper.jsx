@@ -113,11 +113,10 @@ export const windowWrapper = (WrappedComponent) => {
                 id={windowKey}
                 onClick={handleWindowClick}
                 style={windowStyles}
-                className={`fixed transition-shadow duration-300 ${
-                    isActive
+                className={`fixed transition-shadow duration-300 ${isActive
                         ? "shadow-[0_25px_60px_-12px_rgba(0,0,0,0.45)]"
                         : "shadow-xl"
-                } rounded-xl overflow-hidden flex flex-col`}
+                    } rounded-xl overflow-hidden flex flex-col`}
             >
                 {customFrame ? (
                     /* The wrapped component owns its entire frame including traffic lights */
