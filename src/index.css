@@ -357,7 +357,7 @@ body {
         }
 
         p {
-          @apply text-sm text-center font-medium w-40;
+          @apply text-sm text-center font-medium w-40 text-black drop-shadow-sm;
         }
       }
     }

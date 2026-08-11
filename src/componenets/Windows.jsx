@@ -45,6 +45,23 @@ export const FinderWindow = () => {
             );
           })}
         </ul>
+
+        <h3 className="mt-6 mb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider px-3">Work</h3>
+        <ul>
+          {locations.work?.children?.map((project, index) => {
+            const isActive = activeLocation?.id === project.id;
+            return (
+              <li
+                key={project.id}
+                onClick={() => setActiveLocation(project)}
+                className={isActive ? "active" : "not-active"}
+              >
+                <img src="/icons/file.svg" alt="Project" className="dark:invert w-4 h-4 opacity-70" />
+                <p>Project {index + 1}</p>
+              </li>
+            );
+          })}
+        </ul>
       </div>
 
       {/* Main Content Pane */}
