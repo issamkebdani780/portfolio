@@ -19,6 +19,8 @@ export const FinderWindow = () => {
       } else if (item.fileType === "url") {
         window.open(item.href, "_blank");
       }
+    } else if (item.kind === "folder") {
+      setActiveLocation(item);
     }
   };
 

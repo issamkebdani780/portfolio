@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import NavBar from "./componenets/NavBar";
 import Welcome from "./componenets/Welcome";
 import Dock from "./componenets/Dock";
-import DesktopIcons from "./componenets/DesktopIcons";
+import Home from "./componenets/Home";
 import { windowWrapper } from "./hoc/WindowWrapper";
 import { useWindowsStore } from "./store/window";
 import {
@@ -34,7 +34,7 @@ const App = () => {
       <Welcome />
 
       {/* Desktop Files and Folders Icons */}
-      <DesktopIcons />
+      <Home />
 
       {/* macOS Interactive Windows wrapped in HOC */}
       <FinderWithWrapper windowKey="finder" title="Portfolio" />
