@@ -43,8 +43,8 @@ const App = () => {
       <TerminalWithWrapper windowKey="terminal" title="Terminal" />
       <Contact windowKey="contact" title="Contact Me" customFrame={true} windowStyle={{ width: 540 }} />
 
-      {/* Resume — self-contained customFrame with react-pdf viewer */}
-      <Resume windowKey="resume" title="Resume.pdf" customFrame={true} windowStyle={{ width: 480 }} />
+      {/* Resume — self-contained customFrame with HTML layout */}
+      <Resume windowKey="resume" title="Resume.pdf" customFrame={true} windowStyle={{ width: 700 }} />
 
       <TxtFileWindow
         windowKey="txtfile"

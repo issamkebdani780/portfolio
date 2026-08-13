@@ -176,7 +176,7 @@ body {
   }
 
   #terminal {
-    @apply w-xl absolute top-32 left-1/12 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+    @apply w-3xl absolute top-32 left-1/12 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
     h2 {
       @apply font-bold text-sm text-center w-full;
@@ -202,7 +202,7 @@ body {
           }
 
           ul {
-            @apply flex items-center gap-3;
+            @apply flex items-center flex-wrap gap-x-2 gap-y-0.5;
           }
         }
       }

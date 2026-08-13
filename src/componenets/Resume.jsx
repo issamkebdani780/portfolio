@@ -1,103 +1,167 @@
-import React, { useState, useCallback } from "react";
-import { Document, Page, pdfjs } from "react-pdf";
-import { windowWrapper } from "../hoc/WindowWrapper";
+import React from "react";
 import WindowControle from "./WindowControle";
-
-// Use the CDN worker to avoid bundling pdfjs worker
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+import { windowWrapper } from "../hoc/WindowWrapper";
 
 const Resume = ({ windowKey }) => {
-  const [numPages, setNumPages] = useState(null);
-  const [pageNumber, setPageNumber] = useState(1);
-
-  const onDocumentLoadSuccess = useCallback(({ numPages }) => {
-    setNumPages(numPages);
-    setPageNumber(1);
-  }, []);
-
   return (
-    <div className="flex flex-col bg-white rounded-xl overflow-hidden" style={{ width: 480 }}>
-
+    <div className="flex flex-col bg-[#f3f4f6] dark:bg-[#1a1a1a] rounded-xl overflow-hidden w-full h-full">
       {/* ── macOS Title Bar ───────────────────────────────────── */}
       <div
-        className={`drag-handle-${windowKey} flex items-center justify-between px-4 py-2.5 bg-[#ececec] border-b border-gray-300 select-none cursor-move`}
+        className={`drag-handle-${windowKey} flex items-center justify-between px-4 py-2.5 bg-[#ececec] dark:bg-[#2c2c2e] border-b border-gray-300 dark:border-gray-700 select-none cursor-move`}
       >
-        {/* Traffic lights */}
         <WindowControle appId={windowKey} />
-
-        {/* Centered title */}
-        <span className="absolute left-1/2 -translate-x-1/2 text-[13px] font-semibold text-gray-600 pointer-events-none">
+        <span className="absolute left-1/2 -translate-x-1/2 text-[13px] font-semibold text-gray-600 dark:text-gray-300 pointer-events-none">
           Resume.pdf
         </span>
-
-        {/* Download button */}
-        <a
-          href="/files/resume.pdf"
-          download="Resume.pdf"
-          className="p-1.5 rounded hover:bg-gray-300/70 transition-colors text-gray-500 hover:text-gray-700"
-          title="Download PDF"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-          </svg>
-        </a>
+        <div className="w-4 h-4" />
       </div>
 
-      {/* ── PDF Viewer ────────────────────────────────────────── */}
-      <div className="overflow-auto bg-gray-100 flex justify-center" style={{ maxHeight: "calc(100vh - 180px)" }}>
-        <Document
-          file="/files/resume.pdf"
-          onLoadSuccess={onDocumentLoadSuccess}
-          loading={
-            <div className="flex items-center justify-center py-20 text-sm text-gray-400">
-              Loading resume…
-            </div>
-          }
-          error={
-            <div className="flex flex-col items-center justify-center py-20 gap-3 text-sm text-gray-500">
-              <span>Could not load PDF.</span>
-              <a
-                href="/files/resume.pdf"
-                download
-                className="px-4 py-2 bg-blue-500 text-white rounded-lg text-xs hover:bg-blue-600 transition-colors"
-              >
-                Download instead
-              </a>
-            </div>
-          }
-        >
-          <Page
-            pageNumber={pageNumber}
-            width={480}
-            renderTextLayer={false}
-            renderAnnotationLayer={false}
-          />
-        </Document>
-      </div>
+      {/* ── HTML Resume Document ──────────────────────────────── */}
+      <div className="overflow-auto flex justify-center p-4 sm:p-8" style={{ maxHeight: "calc(100vh - 120px)" }}>
+        <div className="bg-white dark:bg-[#252525] w-full max-w-[800px] min-h-[1056px] shadow-sm ring-1 ring-gray-900/5 dark:ring-white/10 p-8 sm:p-12 text-gray-800 dark:text-gray-300 text-[13px] leading-relaxed font-sans select-text">
 
-      {/* ── Page Navigation (only shown if multi-page) ─────── */}
-      {numPages && numPages > 1 && (
-        <div className="flex items-center justify-center gap-4 py-2 bg-[#f5f5f5] border-t border-gray-200 select-none">
-          <button
-            onClick={() => setPageNumber((p) => Math.max(1, p - 1))}
-            disabled={pageNumber <= 1}
-            className="px-3 py-1 text-xs rounded border border-gray-300 bg-white hover:bg-gray-50 disabled:opacity-40 transition-colors cursor-pointer focus:outline-none"
-          >
-            ←
-          </button>
-          <span className="text-xs text-gray-500 font-medium">
-            {pageNumber} / {numPages}
-          </span>
-          <button
-            onClick={() => setPageNumber((p) => Math.min(numPages, p + 1))}
-            disabled={pageNumber >= numPages}
-            className="px-3 py-1 text-xs rounded border border-gray-300 bg-white hover:bg-gray-50 disabled:opacity-40 transition-colors cursor-pointer focus:outline-none"
-          >
-            →
-          </button>
+          {/* Header */}
+          <div className="text-center mb-6 border-b border-gray-300 dark:border-gray-700 pb-4">
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white uppercase tracking-wide mb-1">Issam Kebdani</h1>
+            <h2 className="text-[15px] font-medium text-blue-600 dark:text-blue-400 mb-2">Junior Full-Stack Web Developer</h2>
+            <div className="text-gray-600 dark:text-gray-400 text-[12px] flex flex-wrap justify-center gap-x-4 gap-y-1">
+              <span>Algeria</span>
+              <span>•</span>
+              <span>+213 781 24 39 66</span>
+              <span>•</span>
+              <a href="mailto:kebdaniissam780@gmail.com" className="hover:text-blue-500 transition-colors">kebdaniissam780@gmail.com</a>
+            </div>
+            <div className="text-gray-600 dark:text-gray-400 text-[12px] flex flex-wrap justify-center gap-x-4 gap-y-1 mt-1">
+              <a href="https://linkedin.com/in/issam-kebdani-8b6154334" target="_blank" rel="noreferrer" className="hover:text-blue-500 transition-colors">linkedin.com/in/issam-kebdani-8b6154334</a>
+              <span>•</span>
+              <a href="https://github.com/issamkebdani780" target="_blank" rel="noreferrer" className="hover:text-blue-500 transition-colors">github.com/issamkebdani780</a>
+            </div>
+          </div>
+
+          {/* Professional Summary */}
+          <div className="mb-5">
+            <h3 className="text-[14px] font-bold text-gray-900 dark:text-white uppercase border-b-2 border-gray-800 dark:border-gray-400 pb-1 mb-2">Professional Summary</h3>
+            <p className="text-justify">
+              Junior Full-Stack Web Developer with professional experience developing responsive web applications within a development team and hands-on experience building full-stack applications from frontend to backend and database. Strong foundation in React.js, JavaScript, HTML, CSS, Tailwind CSS, Express.js, REST APIs, and MySQL.
+            </p>
+            <p className="text-justify mt-2">
+              Built and deployed business websites, e-commerce platforms, booking systems, and management applications, including a healthcare appointment management platform. Previous experience in e-commerce sales and client communication developed strong skills in understanding customer needs and business-oriented communication. Seeking a remote Junior Web Developer opportunity focused on building responsive, modern, and functional web applications.
+            </p>
+          </div>
+
+          {/* Technical Skills */}
+          <div className="mb-5">
+            <h3 className="text-[14px] font-bold text-gray-900 dark:text-white uppercase border-b-2 border-gray-800 dark:border-gray-400 pb-1 mb-2">Technical Skills</h3>
+            <ul className="space-y-1">
+              <li><span className="font-semibold text-gray-900 dark:text-white">Frontend:</span> HTML5, CSS3, JavaScript, React.js, Tailwind CSS, Responsive Web Design</li>
+              <li><span className="font-semibold text-gray-900 dark:text-white">Backend:</span> Node.js, Express.js, REST APIs, JWT</li>
+              <li><span className="font-semibold text-gray-900 dark:text-white">Database:</span> MySQL, Relational Database Design, SQL</li>
+              <li><span className="font-semibold text-gray-900 dark:text-white">Tools & Workflow:</span> Git, GitHub, API Integration, Responsive Development</li>
+              <li><span className="font-semibold text-gray-900 dark:text-white">Other:</span> E-commerce, Shopify, Business Websites, Client Communication</li>
+            </ul>
+          </div>
+
+          {/* Professional Experience */}
+          <div className="mb-5">
+            <h3 className="text-[14px] font-bold text-gray-900 dark:text-white uppercase border-b-2 border-gray-800 dark:border-gray-400 pb-1 mb-2">Professional Experience</h3>
+
+            <div className="mb-3">
+              <div className="flex justify-between items-baseline">
+                <h4 className="font-bold text-gray-900 dark:text-white">CREAPLUS DIGITAL</h4>
+                <span className="text-[12px] font-medium text-gray-600 dark:text-gray-400">April 2026 – August 2026</span>
+              </div>
+              <div className="italic text-gray-700 dark:text-gray-300 mb-1">Junior Frontend Developer (Remote)</div>
+              <ul className="list-disc list-inside space-y-1 ml-1 text-justify">
+                <li>Develop responsive web applications using React.js, JavaScript, HTML, CSS, and Tailwind CSS.</li>
+                <li>Build reusable frontend components and integrate REST APIs.</li>
+                <li>Translate business requirements and interface requirements into functional, responsive web experiences.</li>
+                <li>Contribute to the development of business platforms, management systems, and brand websites.</li>
+              </ul>
+            </div>
+
+            <div className="mb-3">
+              <div className="flex justify-between items-baseline">
+                <h4 className="font-bold text-gray-900 dark:text-white">MMG</h4>
+                <span className="text-[12px] font-medium text-gray-600 dark:text-gray-400">January 2025 – October 2025</span>
+              </div>
+              <div className="italic text-gray-700 dark:text-gray-300 mb-1">Closer & VIP Closer</div>
+              <ul className="list-disc list-inside space-y-1 ml-1 text-justify">
+                <li>Managed sales conversations for an e-commerce training program, guiding prospects through the buying process.</li>
+                <li>Used CRM tools to manage prospects, follow up with leads, and maintain organized customer communication.</li>
+                <li>Handled customer objections and adapted communication to different customer needs.</li>
+              </ul>
+            </div>
+
+            <div>
+              <div className="flex justify-between items-baseline">
+                <h4 className="font-bold text-gray-900 dark:text-white">MEDIAZ</h4>
+                <span className="text-[12px] font-medium text-gray-600 dark:text-gray-400">December 2025 – February 2026</span>
+              </div>
+              <div className="italic text-gray-700 dark:text-gray-300 mb-1">Closer</div>
+              <ul className="list-disc list-inside space-y-1 ml-1 text-justify">
+                <li>Managed customer conversations and sales processes for a management program.</li>
+                <li>Identified customer needs, handled objections, and guided prospects toward purchasing decisions.</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Selected Projects */}
+          <div className="mb-5">
+            <h3 className="text-[14px] font-bold text-gray-900 dark:text-white uppercase border-b-2 border-gray-800 dark:border-gray-400 pb-1 mb-2">Selected Projects</h3>
+
+            <div className="mb-2">
+              <span className="font-bold text-gray-900 dark:text-white">Healthora</span> — Healthcare Appointment & Management Platform
+              <span className="text-gray-600 dark:text-gray-400 italic"> (React.js, Tailwind CSS, Express.js, MySQL)</span>
+              <ul className="list-disc list-inside space-y-0.5 ml-1 mt-1 text-justify">
+                <li>Built a full-stack healthcare management platform for doctor-patient appointment management.</li>
+                <li>Developed both the frontend and backend, including API integration and database functionality.</li>
+              </ul>
+            </div>
+
+            <div className="mb-2">
+              <span className="font-bold text-gray-900 dark:text-white">RiseManager</span> — COD Order Management Platform
+              <span className="text-gray-600 dark:text-gray-400 italic"> (React.js, Tailwind CSS)</span>
+              <ul className="list-disc list-inside space-y-0.5 ml-1 mt-1 text-justify">
+                <li>Developed a landing page designed to manage, confirm, and deliver Cash on Delivery (COD) orders.</li>
+              </ul>
+            </div>
+
+            <div className="mb-2">
+              <span className="font-bold text-gray-900 dark:text-white">Unik</span> — Cosmetics Brand Website
+              <span className="text-gray-600 dark:text-gray-400 italic"> (React.js, Tailwind CSS, JavaScript)</span>
+              <ul className="list-disc list-inside space-y-0.5 ml-1 mt-1 text-justify">
+                <li>Developed a modern responsive website for a cosmetics brand with reusable frontend components.</li>
+              </ul>
+            </div>
+
+            <div className="mb-2">
+              <span className="font-bold text-gray-900 dark:text-white">Baytee</span> — Hotel Booking Platform
+              <span className="text-gray-600 dark:text-gray-400 italic"> (React.js, Tailwind CSS, JavaScript)</span>
+              <ul className="list-disc list-inside space-y-0.5 ml-1 mt-1 text-justify">
+                <li>Developed a responsive hotel booking platform focused on presenting accommodation information.</li>
+              </ul>
+            </div>
+
+          </div>
+
+          {/* Education & Languages */}
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <h3 className="text-[14px] font-bold text-gray-900 dark:text-white uppercase border-b-2 border-gray-800 dark:border-gray-400 pb-1 mb-2">Education</h3>
+              <div className="font-bold text-gray-900 dark:text-white">Université Abou Bekr Belkaid — Tlemcen</div>
+              <div className="italic text-gray-700 dark:text-gray-300">Licence in Computer Science</div>
+            </div>
+            <div>
+              <h3 className="text-[14px] font-bold text-gray-900 dark:text-white uppercase border-b-2 border-gray-800 dark:border-gray-400 pb-1 mb-2">Languages</h3>
+              <ul className="space-y-1">
+                <li><span className="font-semibold text-gray-900 dark:text-white">Arabic:</span> Native</li>
+                <li><span className="font-semibold text-gray-900 dark:text-white">English:</span> Basic to Intermediate (A2–B1)</li>
+              </ul>
+            </div>
+          </div>
+
         </div>
-      )}
+      </div>
     </div>
   );
 };

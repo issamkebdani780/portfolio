@@ -4,7 +4,6 @@ const navLinks = [
     name: "Projects",
     type: "finder",
   },
-
   {
     id: 2,
     name: "Contact",
@@ -39,37 +38,37 @@ const navIcons = [
 const dockApps = [
   {
     id: "finder",
-    name: "Portfolio", // was "Finder"
+    name: "Portfolio",
     icon: "finder.png",
     canOpen: true,
   },
   {
     id: "safari",
-    name: "Articles", // was "Safari"
+    name: "Articles",
     icon: "safari.png",
     canOpen: true,
   },
   {
     id: "photos",
-    name: "Gallery", // was "Photos"
+    name: "Gallery",
     icon: "photos.png",
     canOpen: true,
   },
   {
     id: "contact",
-    name: "Contact", // or "Get in touch"
+    name: "Contact",
     icon: "contact.png",
     canOpen: true,
   },
   {
     id: "terminal",
-    name: "Skills", // was "Terminal"
+    name: "Skills",
     icon: "terminal.png",
     canOpen: true,
   },
   {
     id: "trash",
-    name: "Archive", // was "Trash"
+    name: "Archive",
     icon: "trash.png",
     canOpen: false,
   },
@@ -79,8 +78,7 @@ const blogPosts = [
   {
     id: 1,
     date: "Sep 2, 2025",
-    title:
-      "TypeScript Explained: What It Is, Why It Matters, and How to Master It",
+    title: "TypeScript Explained: What It Is, Why It Matters, and How to Master It",
     image: "/images/blog1.png",
     link: "https://jsmastery.com/blog/typescript-explained-what-it-is-why-it-matters-and-how-to-master-it",
   },
@@ -103,27 +101,23 @@ const blogPosts = [
 const techStack = [
   {
     category: "Frontend",
-    items: ["React.js", "Next.js", "TypeScript"],
-  },
-  {
-    category: "Mobile",
-    items: ["React Native", "Expo"],
-  },
-  {
-    category: "Styling",
-    items: ["Tailwind CSS", "Sass", "CSS"],
+    items: ["React.js", "JavaScript", "Tailwind CSS", "HTML5", "CSS3"],
   },
   {
     category: "Backend",
-    items: ["Node.js", "Express", "NestJS", "Hono"],
+    items: ["Node.js", "Express.js", "REST APIs", "JWT"],
   },
   {
     category: "Database",
-    items: ["MongoDB", "PostgreSQL"],
+    items: ["MySQL", "Relational Database Design", "SQL"],
   },
   {
-    category: "Dev Tools",
-    items: ["Git", "GitHub", "Docker"],
+    category: "Tools & Workflow",
+    items: ["Git", "GitHub", "API Integration", "Responsive Dev"],
+  },
+  {
+    category: "Other",
+    items: ["E-commerce", "Shopify", "Client Communication"],
   },
 ];
 
@@ -133,28 +127,14 @@ const socials = [
     text: "Github",
     icon: "/icons/github.svg",
     bg: "#f4656b",
-    link: "https://github.com/JavaScript-Mastery-Pro",
+    link: "https://github.com/issamkebdani780",
   },
   {
     id: 2,
-    text: "Platform",
-    icon: "/icons/atom.svg",
-    bg: "#4bcb63",
-    link: "https://jsmastery.com/",
-  },
-  {
-    id: 3,
-    text: "Twitter/X",
-    icon: "/icons/twitter.svg",
-    bg: "#ff866b",
-    link: "https://x.com/jsmasterypro",
-  },
-  {
-    id: 4,
     text: "LinkedIn",
     icon: "/icons/linkedin.svg",
     bg: "#05b6f6",
-    link: "https://www.linkedin.com/company/javascriptmastery/posts/?feedView=all",
+    link: "https://linkedin.com/in/issam-kebdani-8b6154334",
   },
 ];
 
@@ -205,17 +185,6 @@ const gallery = [
   },
 ];
 
-export {
-  navLinks,
-  navIcons,
-  dockApps,
-  blogPosts,
-  techStack,
-  socials,
-  photosLinks,
-  gallery,
-};
-
 const WORK_LOCATION = {
   id: 1,
   type: "work",
@@ -223,161 +192,221 @@ const WORK_LOCATION = {
   icon: "/icons/work.svg",
   kind: "folder",
   children: [
-    // ▶ Project 1
     {
       id: 5,
-      name: "Nike Ecommerce Website Application",
+      name: "Healthora - Healthcare Appointment",
       icon: "/images/folder.png",
       kind: "folder",
-      position: "top-10 left-5", // icon position inside Finder
-      windowPosition: "top-[5vh] left-5", // optional: Finder window position
+      position: "top-10 left-5",
+      windowPosition: "top-[5vh] left-5",
       children: [
         {
           id: 1,
-          name: "Nike Project.txt",
+          name: "Healthora Project.txt",
           icon: "/images/txt.png",
           kind: "file",
           fileType: "txt",
           position: "top-5 left-10",
           description: [
-            "The Nike eCommerce website is a sleek and modern platform designed for shopping the latest Nike collections.",
-            "Instead of a simple online store, it delivers an immersive experience with bold visuals, interactive product displays, and smooth navigation.",
-            "Think of it like walking into a flagship Nike store—but right from your phone or laptop.",
-            "It's built with Next.js and Tailwind, ensuring fast performance, responsive design, and a clean, premium look.",
+            "Healthora — Healthcare Appointment & Management Platform",
+            "Built a full-stack healthcare management platform designed around doctor-patient appointment management.",
+            "Developed functionality allowing patients to manage their appointments and access prescriptions and medical documents.",
+            "Implemented doctor functionality for managing availability, appointments, prescriptions, and customized medical documents.",
+            "Built both the frontend and backend, including API integration and database functionality.",
           ],
         },
         {
           id: 2,
-          name: "nike.com",
+          name: "Frontend Link",
           icon: "/images/safari.png",
           kind: "file",
           fileType: "url",
-          href: "https://youtu.be/fZdTYswuZjU?si=Awjl-pIst9e09_UU",
+          href: "https://healthoraweb.netlify.app",
           position: "top-10 right-20",
         },
         {
-          id: 4,
-          name: "nike.png",
-          icon: "/images/image.png",
+          id: 3,
+          name: "Portal Client Link",
+          icon: "/images/safari.png",
           kind: "file",
-          fileType: "img",
-          position: "top-52 right-80",
-          imageUrl: "/images/project-1.png",
-        },
-        {
-          id: 5,
-          name: "Design.fig",
-          icon: "/images/plain.png",
-          kind: "file",
-          fileType: "fig",
-          href: "https://google.com",
-          position: "top-60 right-20",
+          fileType: "url",
+          href: "https://healthora-portal-client.vercel.app",
+          position: "top-40 right-20",
         },
       ],
     },
-
-    // ▶ Project 2
     {
       id: 6,
-      name: "AI Resume Analyzer",
+      name: "RiseManager - COD Platform",
       icon: "/images/folder.png",
       kind: "folder",
-      position: "top-52 right-80",
-      windowPosition: "top-[20vh] left-7",
+      position: "top-10 left-48",
+      windowPosition: "top-[18vh] left-7",
       children: [
         {
           id: 1,
-          name: "AI Resume Analyzer Project.txt",
-          icon: "/images/txt.png",
-          kind: "file",
-          fileType: "txt",
-          position: "top-5 right-10",
-          description: [
-            "AI Resume Analyzer is a smart tool that helps you perfect your resume with instant feedback.",
-            "Instead of guessing what recruiters want, you get AI-powered insights on keywords, formatting, and overall impact.",
-            "Think of it like having a career coach—pointing out strengths, fixing weaknesses, and boosting your chances of landing interviews.",
-            "It's built with Next.js and Tailwind, so it runs fast, looks professional, and works seamlessly on any device.",
-          ],
-        },
-        {
-          id: 2,
-          name: "ai-resume-analyzer.com",
-          icon: "/images/safari.png",
-          kind: "file",
-          fileType: "url",
-          href: "https://youtu.be/iYOz165wGkQ?si=R1hs8Legl200m0Cl",
-          position: "top-20 left-20",
-        },
-        {
-          id: 4,
-          name: "ai-resume-analyzer.png",
-          icon: "/images/image.png",
-          kind: "file",
-          fileType: "img",
-          position: "top-52 left-80",
-          imageUrl: "/images/project-2.png",
-        },
-        {
-          id: 5,
-          name: "Design.fig",
-          icon: "/images/plain.png",
-          kind: "file",
-          fileType: "fig",
-          href: "https://google.com",
-          position: "top-60 left-5",
-        },
-      ],
-    },
-
-    // ▶ Project 3
-    {
-      id: 7,
-      name: "Food Delivery App",
-      icon: "/images/folder.png",
-      kind: "folder",
-      position: "top-10 left-80",
-      windowPosition: "top-[33vh] left-7",
-      children: [
-        {
-          id: 1,
-          name: "Food Delivery App Project.txt",
+          name: "RiseManager Project.txt",
           icon: "/images/txt.png",
           kind: "file",
           fileType: "txt",
           position: "top-5 left-10",
           description: [
-            "Our Food Delivery App is a fast and convenient way to order meals from your favorite restaurants.",
-            "Instead of making calls or waiting in line, you can browse menus, customize orders, and track deliveries in real time.",
-            "Think of it like having your favorite restaurants in your pocket—ready to deliver anytime, anywhere.",
-            "It’s built with React Native, so it works smoothly on both iOS and Android with a clean, modern design.",
+            "RiseManager — COD Order Management Platform",
+            "Developed a landing page designed to manage, confirm, and deliver Cash on Delivery (COD) orders.",
+            "Built responsive interfaces for business operations and order management using React.js and Tailwind CSS.",
           ],
         },
         {
           id: 2,
-          name: "food-delivery-app.com",
+          name: "risemanager.vercel.app",
           icon: "/images/safari.png",
           kind: "file",
           fileType: "url",
-          href: "https://youtu.be/LKrX390fJMw?si=cExkuVhf2DTV9G2-",
+          href: "https://risemanager.vercel.app",
+          position: "top-10 right-20",
+        },
+      ],
+    },
+    {
+      id: 7,
+      name: "Unik - Cosmetics Brand",
+      icon: "/images/folder.png",
+      kind: "folder",
+      position: "top-10 left-96",
+      windowPosition: "top-[31vh] left-7",
+      children: [
+        {
+          id: 1,
+          name: "Unik Project.txt",
+          icon: "/images/txt.png",
+          kind: "file",
+          fileType: "txt",
+          position: "top-5 left-10",
+          description: [
+            "Unik — Cosmetics Brand Website",
+            "Developed a modern responsive website for a cosmetics brand.",
+            "Built reusable frontend components and responsive layouts.",
+            "Implemented the interface using React.js and Tailwind CSS.",
+            "Focused on presenting products and brand content through a modern user experience.",
+          ],
+        },
+        {
+          id: 2,
+          name: "unik-eosin.vercel.app",
+          icon: "/images/safari.png",
+          kind: "file",
+          fileType: "url",
+          href: "https://unik-eosin.vercel.app",
+          position: "top-10 right-20",
+        },
+      ],
+    },
+    {
+      id: 8,
+      name: "Baytee - Hotel Booking",
+      icon: "/images/folder.png",
+      kind: "folder",
+      position: "top-48 left-5",
+      windowPosition: "top-[44vh] left-7",
+      children: [
+        {
+          id: 1,
+          name: "Baytee Project.txt",
+          icon: "/images/txt.png",
+          kind: "file",
+          fileType: "txt",
+          position: "top-5 left-10",
+          description: [
+            "Baytee — Hotel Booking Platform",
+            "Developed a responsive hotel booking platform focused on presenting accommodation information and booking functionality.",
+            "Built reusable React components and responsive interfaces.",
+            "Implemented the frontend architecture and user-facing booking experience using React.js and Tailwind CSS.",
+          ],
+        },
+        {
+          id: 2,
+          name: "baytee.vercel.app",
+          icon: "/images/safari.png",
+          kind: "file",
+          fileType: "url",
+          href: "https://baytee.vercel.app",
+          position: "top-10 right-20",
+        },
+      ],
+    },
+    {
+      id: 9,
+      name: "Carvo - Automotive Project",
+      icon: "/images/folder.png",
+      kind: "folder",
+      position: "top-48 left-48",
+      windowPosition: "top-[57vh] left-7",
+      children: [
+        {
+          id: 1,
+          name: "Carvo Project.txt",
+          icon: "/images/txt.png",
+          kind: "file",
+          fileType: "txt",
+          position: "top-5 left-10",
+          description: [
+            "Carvo — Automotive Web Project",
+            "Developed a responsive automotive-focused web interface using React.js and Tailwind CSS.",
+            "Built reusable components and responsive layouts for different screen sizes.",
+            "Focused on delivering a clean and modern user experience.",
+          ],
+        },
+        {
+          id: 2,
+          name: "carvo-mocha.vercel.app",
+          icon: "/images/safari.png",
+          kind: "file",
+          fileType: "url",
+          href: "https://carvo-mocha.vercel.app",
+          position: "top-10 right-20",
+        },
+      ],
+    },
+    {
+      id: 10,
+      name: "Artigiano DZ - E-commerce",
+      icon: "/images/folder.png",
+      kind: "folder",
+      position: "top-48 left-96",
+      windowPosition: "top-[70vh] left-7",
+      children: [
+        {
+          id: 1,
+          name: "Artigiano DZ Project.txt",
+          icon: "/images/txt.png",
+          kind: "file",
+          fileType: "txt",
+          position: "top-5 left-10",
+          description: [
+            "Artigiano DZ — E-commerce Project",
+            "Built and developed an online presence for a footwear e-commerce business.",
+            "Worked on the website and product presentation.",
+            "Applied practical knowledge of e-commerce, customer communication, and digital marketing.",
+            "Gained experience understanding how website presentation and marketing activities support online sales.",
+          ],
+        },
+        {
+          id: 2,
+          name: "instagram.com",
+          icon: "/images/safari.png",
+          kind: "file",
+          fileType: "url",
+          href: "https://instagram.com/artigianodz",
           position: "top-10 right-20",
         },
         {
-          id: 4,
-          name: "food-delivery-app.png",
-          icon: "/images/image.png",
+          id: 3,
+          name: "store.com",
+          icon: "/images/safari.png",
           kind: "file",
-          fileType: "img",
-          position: "top-52 right-80",
-          imageUrl: "/images/project-3.png",
-        },
-        {
-          id: 5,
-          name: "Design.fig",
-          icon: "/images/plain.png",
-          kind: "file",
-          fileType: "fig",
-          href: "https://google.com",
-          position: "top-60 right-20",
+          fileType: "url",
+          href: "https://artigianodz.linguaflo.me/collections/all",
+          position: "top-50 left-40",
         },
       ],
     },
@@ -392,46 +421,42 @@ const ABOUT_LOCATION = {
   kind: "folder",
   children: [
     {
-      id: 1,
-      name: "me.png",
-      icon: "/images/image.png",
-      kind: "file",
-      fileType: "img",
-      position: "top-10 left-5",
-      imageUrl: "/images/adrian.jpg",
-    },
-    {
-      id: 2,
-      name: "casual-me.png",
-      icon: "/images/image.png",
-      kind: "file",
-      fileType: "img",
-      position: "top-28 right-72",
-      imageUrl: "/images/adrian-2.jpg",
-    },
-    {
-      id: 3,
-      name: "conference-me.png",
-      icon: "/images/image.png",
-      kind: "file",
-      fileType: "img",
-      position: "top-52 left-80",
-      imageUrl: "/images/adrian-3.jpeg",
-    },
-    {
       id: 4,
       name: "about-me.txt",
       icon: "/images/txt.png",
       kind: "file",
       fileType: "txt",
-      position: "top-60 left-5",
-      subtitle: "Meet the Developer Behind the Code",
-      image: "/images/adrian.jpg",
+      position: "top-10 left-5",
+      subtitle: "Junior Full-Stack Web Developer",
+      image: "",
       description: [
-        "Hey! I’m Adrian 👋, a web developer who enjoys building sleek, interactive websites that actually work well.",
-        "I specialize in JavaScript, React, and Next.js—and I love making things feel smooth, fast, and just a little bit delightful.",
-        "I’m big on clean UI, good UX, and writing code that doesn’t need a search party to debug.",
-        "Outside of dev work, you'll find me tweaking layouts at 2AM, sipping overpriced coffee, or impulse-buying gadgets I absolutely convinced myself I needed 😅",
+        "Hey! I'm Issam Kebdani 👋, a Junior Full-Stack Web Developer from Algeria.",
+        "I have professional experience developing responsive web applications within a development team and hands-on experience building full-stack applications from frontend to backend and database.",
+        "I have a strong foundation in React.js, JavaScript, HTML, CSS, Tailwind CSS, Express.js, REST APIs, and MySQL.",
+        "I have built and deployed business websites, e-commerce platforms, booking systems, and management applications, including a healthcare appointment management platform.",
+        "My previous experience in e-commerce sales and client communication developed strong skills in understanding customer needs, handling objections, and business-oriented communication.",
+        "Education: Licence in Computer Science, Université Abou Bekr Belkaid — Tlemcen.",
+      ],
+    },
+    {
+      id: 5,
+      name: "experience.txt",
+      icon: "/images/txt.png",
+      kind: "file",
+      fileType: "txt",
+      position: "top-10 left-48",
+      subtitle: "Professional Experience",
+      description: [
+        "CREAPLUS DIGITAL (April 2026 - August 2026) | Junior Frontend Developer",
+        "- Developed responsive web applications using React.js, JavaScript, HTML, CSS, and Tailwind CSS.",
+        "- Built reusable frontend components and integrated REST APIs.",
+        "",
+        "MMG (Jan 2025 - Oct 2025) | Closer",
+        "- Managed sales conversations for an e-commerce training program.",
+        "- Used CRM tools to manage prospects and handle customer objections.",
+        "",
+        "MEDIAZ (Dec 2025 - Feb 2026) | Closer",
+        "- Managed customer conversations and sales processes for a management program.",
       ],
     },
   ],
@@ -450,8 +475,7 @@ const RESUME_LOCATION = {
       icon: "/images/pdf.png",
       kind: "file",
       fileType: "pdf",
-      // you can add `href` if you want to open a hosted resume
-      // href: "/your/resume/path.pdf",
+      position: "top-10 left-5",
     },
   ],
 };
@@ -462,46 +486,39 @@ const TRASH_LOCATION = {
   name: "Trash",
   icon: "/icons/trash.svg",
   kind: "folder",
-  children: [
-    {
-      id: 1,
-      name: "trash1.png",
-      icon: "/images/image.png",
-      kind: "file",
-      fileType: "img",
-      position: "top-10 left-10",
-      imageUrl: "/images/trash-1.png",
-    },
-    {
-      id: 2,
-      name: "trash2.png",
-      icon: "/images/image.png",
-      kind: "file",
-      fileType: "img",
-      position: "top-40 left-80",
-      imageUrl: "/images/trash-2.png",
-    },
-  ],
+  children: [],
 };
 
-export const locations = {
+const locations = {
   work: WORK_LOCATION,
   about: ABOUT_LOCATION,
   resume: RESUME_LOCATION,
   trash: TRASH_LOCATION,
 };
 
-const INITIAL_Z_INDEX = 1000;
+export {
+  navLinks,
+  navIcons,
+  dockApps,
+  blogPosts,
+  techStack,
+  socials,
+  photosLinks,
+  gallery,
+  locations,
+};
+
+const INITIAL_Z_INDEX = 10;
 
 const WINDOW_CONFIG = {
-  finder: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  contact: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  resume: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  safari: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  photos: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  terminal: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+  finder: { isOpen: false, isMinimized: false, isMaximized: false, zIndex: 0 },
+  safari: { isOpen: false, isMinimized: false, isMaximized: false, zIndex: 0 },
+  photos: { isOpen: false, isMinimized: false, isMaximized: false, zIndex: 0 },
+  terminal: { isOpen: false, isMinimized: false, isMaximized: false, zIndex: 0 },
+  contact: { isOpen: false, isMinimized: false, isMaximized: false, zIndex: 0 },
+  txtfile: { isOpen: false, isMinimized: false, isMaximized: false, zIndex: 0, data: null },
+  imgfile: { isOpen: false, isMinimized: false, isMaximized: false, zIndex: 0, data: null },
+  resume: { isOpen: false, isMinimized: false, isMaximized: false, zIndex: 0 },
 };
 
 export { INITIAL_Z_INDEX, WINDOW_CONFIG };

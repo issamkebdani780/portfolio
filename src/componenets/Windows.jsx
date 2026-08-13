@@ -132,7 +132,7 @@ export const TerminalWindow = () => {
   return (
     <div className="techstack">
       <div className="label">
-        <span className="font-bold text-zinc-900 dark:text-white mr-2">@adrian %</span>
+        <span className="font-bold text-zinc-900 dark:text-white mr-2">@issam %</span>
         <span className="text-zinc-700 dark:text-zinc-300">show techstack</span>
       </div>
 
