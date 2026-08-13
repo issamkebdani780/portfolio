@@ -44,7 +44,7 @@ const dockApps = [
   },
   {
     id: "safari",
-    name: "Articles",
+    name: "Experience",
     icon: "safari.png",
     canOpen: true,
   },
@@ -74,27 +74,51 @@ const dockApps = [
   },
 ];
 
-const blogPosts = [
+const workExperience = [
   {
     id: 1,
-    date: "Sep 2, 2025",
-    title: "TypeScript Explained: What It Is, Why It Matters, and How to Master It",
-    image: "/images/blog1.png",
-    link: "https://jsmastery.com/blog/typescript-explained-what-it-is-why-it-matters-and-how-to-master-it",
+    company: "CREAPLUS DIGITAL",
+    role: "Junior Frontend Developer",
+    type: "Remote",
+    period: "April 2026 – August 2026",
+    color: "#3b82f6",
+    bullets: [
+      "Develop responsive web applications using React.js, JavaScript, HTML, CSS, and Tailwind CSS within a collaborative development team.",
+      "Build reusable frontend components and integrate REST APIs to connect web interfaces with backend services.",
+      "Use Git and GitHub as part of the development workflow and collaborate with other developers on project implementation.",
+      "Translate business requirements and interface requirements into functional, responsive web experiences.",
+      "Contribute to the development of business platforms, management systems, booking applications, and brand websites.",
+      "Apply responsive design principles to deliver interfaces across desktop, tablet, and mobile devices.",
+    ],
   },
   {
     id: 2,
-    date: "Aug 28, 2025",
-    title: "The Ultimate Guide to Mastering Three.js for 3D Development",
-    image: "/images/blog2.png",
-    link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-three-js-for-3d-development",
+    company: "MMG",
+    role: "Closer → VIP Closer",
+    type: "Sales",
+    period: "January 2025 – October 2025",
+    color: "#10b981",
+    bullets: [
+      "Managed sales conversations for an e-commerce training program, guiding prospects through the buying process.",
+      "Used CRM tools to manage prospects, follow up with leads, and maintain organized customer communication.",
+      "Handled customer objections and adapted communication to different customer needs and concerns.",
+      "Developed strong client communication, active listening, negotiation, and follow-up skills.",
+      "Progressed to VIP Closer, demonstrating strong performance and ability to manage higher-value sales conversations.",
+    ],
   },
   {
     id: 3,
-    date: "Aug 15, 2025",
-    title: "The Ultimate Guide to Mastering GSAP Animations",
-    image: "/images/blog3.png",
-    link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-gsap-animations",
+    company: "MEDIAZ",
+    role: "Closer",
+    type: "Sales",
+    period: "December 2025 – February 2026",
+    color: "#8b5cf6",
+    bullets: [
+      "Managed customer conversations and sales processes for a management program.",
+      "Identified customer needs, handled objections, and guided prospects toward purchasing decisions.",
+      "Maintained follow-up with prospects and communicated with customers throughout the sales process.",
+      "Developed practical experience in customer relationship management and business communication.",
+    ],
   },
 ];
 
@@ -500,7 +524,7 @@ export {
   navLinks,
   navIcons,
   dockApps,
-  blogPosts,
+  workExperience,
   techStack,
   socials,
   photosLinks,

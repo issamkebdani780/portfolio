@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { locations, blogPosts, techStack, socials, photosLinks, gallery } from "../constant";
+import { locations, workExperience, techStack, socials, photosLinks, gallery } from "../constant";
 import { useWindowsStore } from "../store/window";
 import useLocationStore from "../store/location";
 
