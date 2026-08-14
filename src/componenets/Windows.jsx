@@ -200,46 +200,173 @@ export const ContactWindow = () => {
 };
 
 export const PhotosWindow = () => {
-  const [activeTab, setActiveTab] = useState(1);
+  const licenses = [
+    { id: 1, name: "Participate at tailwind/next js workshop", src: "/license/clubesi.jpg" },
+    { id: 2, name: "confirmateur license kayzo", src: "/license/kayzo.jpg" },
+    { id: 3, name: "closer at MMG", src: "/license/mmg.jpg" },
+    { id: 4, name: "Prompt Engineering", src: "/license/promptengeneering.png" },
+    { id: 5, name: "Participate at Techinovator", src: "/license/techinovator.jpg" },
+  ];
+
+  const [tabs, setTabs] = useState([{ id: 1, selected: null }]);
+  const [activeTabId, setActiveTabId] = useState(1);
+  const [nextId, setNextId] = useState(2);
+
+  const activeTab = tabs.find((t) => t.id === activeTabId) ?? tabs[0];
+
+  const openLicenseInNewTab = (license) => {
+    const existing = tabs.find((t) => t.selected?.id === license.id);
+    if (existing) {
+      setActiveTabId(existing.id);
+      return;
+    }
+    const id = nextId;
+    setNextId((n) => n + 1);
+    setTabs((prev) => [...prev, { id, selected: license }]);
+    setActiveTabId(id);
+  };
+
+  const addTab = () => {
+    const id = nextId;
+    setNextId((n) => n + 1);
+    setTabs((prev) => [...prev, { id, selected: null }]);
+    setActiveTabId(id);
+  };
+
+  const closeTab = (id, e) => {
+    e.stopPropagation();
+    setTabs((prev) => {
+      const remaining = prev.filter((t) => t.id !== id);
+      if (remaining.length === 0) {
+        const freshId = nextId;
+        setNextId((n) => n + 1);
+        setActiveTabId(freshId);
+        return [{ id: freshId, selected: null }];
+      }
+      if (id === activeTabId) {
+        setActiveTabId(remaining[remaining.length - 1].id);
+      }
+      return remaining;
+    });
+  };
 
   return (
-    <div className="flex h-full text-zinc-800 dark:text-zinc-200 bg-white dark:bg-zinc-950">
-      {/* Sidebar */}
-      <div className="sidebar">
-        <h2>Photos</h2>
-        <ul>
-          {photosLinks.map((link) => {
-            const isActive = activeTab === link.id;
-            return (
-              <li
-                key={link.id}
-                onClick={() => setActiveTab(link.id)}
-                className={isActive ? "active" : ""}
-              >
-                <img src={link.icon} alt={link.title} />
-                <p>{link.title}</p>
-              </li>
-            );
-          })}
-        </ul>
+    <div className="flex flex-col h-full bg-white dark:bg-[#1c1c1e] text-zinc-800 dark:text-zinc-200">
+      {/* Tab bar */}
+      <div className="flex items-end gap-[2px] px-1.5 sm:px-2 pt-1.5 sm:pt-2 bg-gray-100 dark:bg-[#2c2c2e] border-b border-gray-200 dark:border-gray-800 overflow-x-auto scrollbar-thin">
+        {tabs.map((tab) => {
+          const isActive = tab.id === activeTabId;
+          const label = tab.selected ? tab.selected.name : "All Licenses";
+          return (
+            <div
+              key={tab.id}
+              onClick={() => setActiveTabId(tab.id)}
+              className={`group relative flex items-center gap-1 sm:gap-1.5 min-w-[72px] sm:min-w-[100px] max-w-[110px] sm:max-w-[160px] shrink-0 px-2 sm:px-3 py-1 sm:py-1.5 rounded-t-lg cursor-pointer select-none transition-colors ${
+                isActive
+                  ? "bg-white dark:bg-[#1c1c1e] text-gray-800 dark:text-gray-100"
+                  : "bg-gray-200/70 dark:bg-[#252527] text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-[#2a2a2c]"
+              }`}
+            >
+              {tab.selected && (
+                <img
+                  src={tab.selected.src}
+                  alt=""
+                  className="w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-sm object-cover shrink-0"
+                />
+              )}
+              <span className="text-[10px] sm:text-[11.5px] font-medium truncate flex-1">
+                {label}
+              </span>
+              {tabs.length > 1 && (
+                <button
+                  onClick={(e) => closeTab(tab.id, e)}
+                  className="opacity-0 group-hover:opacity-100 sm:group-hover:opacity-100 flex items-center justify-center w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 transition-opacity focus:outline-none shrink-0"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-2 h-2 sm:w-2.5 sm:h-2.5">
+                    <path strokeLinecap="round" d="M6 6l12 12M18 6L6 18" />
+                  </svg>
+                </button>
+              )}
+            </div>
+          );
+        })}
+
+        <button
+          onClick={addTab}
+          className="flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 mb-1 sm:mb-1.5 ml-1 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-200 dark:hover:bg-[#333] dark:hover:text-gray-200 transition-colors focus:outline-none shrink-0"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className="w-3 h-3 sm:w-3.5 sm:h-3.5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+        </button>
       </div>
 
-      {/* Gallery content */}
-      <div className="gallery">
-        <ul>
-          {gallery.map((item) => (
-            <li key={item.id}>
-              <img
-                src={item.img}
-                alt="Gallery content"
-              />
-            </li>
-          ))}
-        </ul>
+      {/* Header */}
+      <div className="px-3 sm:px-5 pt-3 sm:pt-4 pb-2 border-b border-gray-100 dark:border-gray-800">
+        <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
+          Certifications &amp; Licenses — {licenses.length} items
+        </p>
       </div>
+
+      {/* Grid */}
+      {!activeTab.selected ? (
+        <div className="flex-1 overflow-auto p-3 sm:p-5">
+          <div
+            className="grid gap-3 sm:gap-4"
+            style={{ gridTemplateColumns: "repeat(auto-fill, minmax(140px, 170px))" }}
+          >
+            {licenses.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => openLicenseInNewTab(item)}
+                className="group flex flex-col rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-md transition-all duration-200 text-left bg-gray-50 dark:bg-[#252525] cursor-pointer focus:outline-none"
+              >
+                <div className="w-full aspect-video overflow-hidden bg-gray-100 dark:bg-[#333]">
+                  <img
+                    src={item.src}
+                    alt={item.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="px-2.5 py-1.5">
+                  <p className="text-[11px] font-semibold text-gray-800 dark:text-gray-200 truncate">
+                    {item.name}
+                  </p>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      ) : (
+        /* Fullscreen preview */
+        <div className="flex-1 flex flex-col overflow-hidden min-h-0">
+          <div className="flex items-center gap-2 px-3 sm:px-4 py-2 border-b border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-[#252525]">
+            <button
+              onClick={() => closeTab(activeTab.id, { stopPropagation: () => {} })}
+              className="flex items-center gap-1 text-[11px] sm:text-[12px] text-blue-500 hover:text-blue-600 transition-colors cursor-pointer focus:outline-none shrink-0"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className="w-3 h-3 sm:w-3.5 sm:h-3.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+              </svg>
+              <span className="hidden xs:inline">All Licenses</span>
+            </button>
+            <span className="text-[11px] sm:text-[12px] text-gray-400 dark:text-gray-500 truncate">
+              / {activeTab.selected.name}
+            </span>
+          </div>
+          <div className="flex-1 overflow-auto flex items-center justify-center p-3 sm:p-6 bg-white dark:bg-[#1c1c1e] min-h-0">
+            <img
+              src={activeTab.selected.src}
+              alt={activeTab.selected.name}
+              className="max-w-full max-h-full object-contain rounded-lg shadow-lg border border-gray-200 dark:border-gray-700"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
+
 
 export const ResumeWindow = () => {
   return (

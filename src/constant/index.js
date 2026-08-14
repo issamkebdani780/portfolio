@@ -50,7 +50,7 @@ const dockApps = [
   },
   {
     id: "photos",
-    name: "Gallery",
+    name: "Licenses",
     icon: "photos.png",
     canOpen: true,
   },

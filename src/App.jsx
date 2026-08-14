@@ -39,7 +39,11 @@ const App = () => {
       {/* macOS Interactive Windows wrapped in HOC */}
       <FinderWithWrapper windowKey="finder" title="Portfolio" />
       <Safari windowKey="safari" title="Articles" customFrame={true} windowStyle={{ width: 520 }} />
-      <PhotosWithWrapper windowKey="photos" title="Gallery" />
+      <PhotosWithWrapper
+        windowKey="photos"
+        title="Gallery"
+        windowStyle={{ width: 620, height: 560, top: 430, left: 140 }}
+      />
       <TerminalWithWrapper windowKey="terminal" title="Terminal" />
       <Contact windowKey="contact" title="Contact Me" customFrame={true} windowStyle={{ width: 540 }} />
 
