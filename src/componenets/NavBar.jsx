@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 import { navLinks } from "../constant";
 import { useWindowsStore } from "../store/window";
 
-const NavBar = ({ theme = "dark", setTheme }) => {
+const NavBar = ({ theme = "light", setTheme }) => {
   const activeWindow = useWindowsStore((state) => state.activeWindow);
   const openWindow = useWindowsStore((state) => state.openWindow);
 

@@ -51,7 +51,7 @@ const Resume = ({ windowKey }) => {
                   <span>Download PDF</span>
                 </a>
               </div>
-              <h2 className="text-[15px] font-medium text-blue-600 dark:text-blue-400 mb-2">Junior Full-Stack Web Developer</h2>
+              <h2 className="text-[15px] font-medium text-blue-600 dark:text-blue-400 mb-2">Full-Stack Web Developer</h2>
               <div className="text-gray-600 dark:text-gray-400 text-[12px] flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-1">
                 <span>Algeria</span>
                 <span>•</span>
@@ -71,10 +71,10 @@ const Resume = ({ windowKey }) => {
           <div className="mb-5">
             <h3 className="text-[14px] font-bold text-gray-900 dark:text-white uppercase border-b-2 border-gray-800 dark:border-gray-400 pb-1 mb-2">Professional Summary</h3>
             <p className="text-justify">
-              Junior Full-Stack Web Developer with professional experience developing responsive web applications within a development team and hands-on experience building full-stack applications from frontend to backend and database. Strong foundation in React.js, JavaScript, HTML, CSS, Tailwind CSS, Express.js, REST APIs, and MySQL.
+              Full-Stack Web Developer with professional experience developing responsive web applications within a development team and hands-on experience building full-stack applications from frontend to backend and database. Strong foundation in React.js, JavaScript, HTML, CSS, Tailwind CSS, Express.js, REST APIs, and MySQL.
             </p>
             <p className="text-justify mt-2">
-              Built and deployed business websites, e-commerce platforms, booking systems, and management applications, including a healthcare appointment management platform. Previous experience in e-commerce sales and client communication developed strong skills in understanding customer needs and business-oriented communication. Seeking a remote Junior Web Developer opportunity focused on building responsive, modern, and functional web applications.
+              Built and deployed business websites, e-commerce platforms, booking systems, and management applications, including a healthcare appointment management platform. Previous experience in e-commerce sales and client communication developed strong skills in understanding customer needs and business-oriented communication. Seeking a remote Web Developer opportunity focused on building responsive, modern, and functional web applications.
             </p>
           </div>
 
@@ -86,7 +86,7 @@ const Resume = ({ windowKey }) => {
               <li><span className="font-semibold text-gray-900 dark:text-white">Backend:</span> Node.js, Express.js, REST APIs, JWT</li>
               <li><span className="font-semibold text-gray-900 dark:text-white">Database:</span> MySQL, Relational Database Design, SQL</li>
               <li><span className="font-semibold text-gray-900 dark:text-white">Tools & Workflow:</span> Git, GitHub, API Integration, Responsive Development</li>
-              <li><span className="font-semibold text-gray-900 dark:text-white">Other:</span> E-commerce, Shopify, Business Websites, Client Communication</li>
+              <li><span className="font-semibold text-gray-900 dark:text-white">Other:</span> E-commerce, Shopify, Business Websites, Client Communication, Meta ads</li>
             </ul>
           </div>
 
@@ -99,7 +99,7 @@ const Resume = ({ windowKey }) => {
                 <h4 className="font-bold text-gray-900 dark:text-white">CREAPLUS DIGITAL</h4>
                 <span className="text-[12px] font-medium text-gray-600 dark:text-gray-400">April 2026 – August 2026</span>
               </div>
-              <div className="italic text-gray-700 dark:text-gray-300 mb-1">Junior Frontend Developer (Remote)</div>
+              <div className="italic text-gray-700 dark:text-gray-300 mb-1">Frontend Developer (Remote)</div>
               <ul className="list-disc list-inside space-y-1 ml-1 text-justify">
                 <li>Develop responsive web applications using React.js, JavaScript, HTML, CSS, and Tailwind CSS.</li>
                 <li>Build reusable frontend components and integrate REST APIs.</li>

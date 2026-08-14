@@ -25,7 +25,7 @@ const ImgFileWithWrapper = windowWrapper(ImgFileWindow);
 
 const App = () => {
   const windows = useWindowsStore((state) => state.windows);
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState("light");
 
   useEffect(() => {
     if (theme === "dark") {

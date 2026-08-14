@@ -78,7 +78,7 @@ const workExperience = [
   {
     id: 1,
     company: "CREAPLUS DIGITAL",
-    role: "Junior Frontend Developer",
+    role: "Frontend Developer",
     type: "Remote",
     period: "April 2026 – August 2026",
     color: "#3b82f6",
@@ -222,7 +222,7 @@ const WORK_LOCATION = {
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-10 left-5",
-      windowPosition: "top-[5vh] left-5",
+      windowPosition: "top-14 left-6",
       children: [
         {
           id: 1,
@@ -265,7 +265,7 @@ const WORK_LOCATION = {
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-10 left-48",
-      windowPosition: "top-[18vh] left-7",
+      windowPosition: "top-14 left-36",
       children: [
         {
           id: 1,
@@ -297,7 +297,7 @@ const WORK_LOCATION = {
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-10 left-96",
-      windowPosition: "top-[31vh] left-7",
+      windowPosition: "top-44 left-6",
       children: [
         {
           id: 1,
@@ -331,7 +331,7 @@ const WORK_LOCATION = {
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-48 left-5",
-      windowPosition: "top-[44vh] left-7",
+      windowPosition: "top-44 left-36",
       children: [
         {
           id: 1,
@@ -364,7 +364,7 @@ const WORK_LOCATION = {
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-48 left-48",
-      windowPosition: "top-[57vh] left-7",
+      windowPosition: "top-74 left-6",
       children: [
         {
           id: 1,
@@ -397,7 +397,7 @@ const WORK_LOCATION = {
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-48 left-96",
-      windowPosition: "top-[70vh] left-7",
+      windowPosition: "top-[26rem] left-6",
       children: [
         {
           id: 1,
@@ -451,10 +451,10 @@ const ABOUT_LOCATION = {
       kind: "file",
       fileType: "txt",
       position: "top-10 left-5",
-      subtitle: "Junior Full-Stack Web Developer",
+      subtitle: "Full-Stack Web Developer",
       image: "",
       description: [
-        "Hey! I'm Issam Kebdani 👋, a Junior Full-Stack Web Developer from Algeria.",
+        "Hey! I'm Issam Kebdani 👋, a Full-Stack Web Developer from Algeria.",
         "I have professional experience developing responsive web applications within a development team and hands-on experience building full-stack applications from frontend to backend and database.",
         "I have a strong foundation in React.js, JavaScript, HTML, CSS, Tailwind CSS, Express.js, REST APIs, and MySQL.",
         "I have built and deployed business websites, e-commerce platforms, booking systems, and management applications, including a healthcare appointment management platform.",
@@ -471,7 +471,7 @@ const ABOUT_LOCATION = {
       position: "top-10 left-48",
       subtitle: "Professional Experience",
       description: [
-        "CREAPLUS DIGITAL (April 2026 - August 2026) | Junior Frontend Developer",
+        "CREAPLUS DIGITAL (April 2026 - August 2026) | Frontend Developer",
         "- Developed responsive web applications using React.js, JavaScript, HTML, CSS, and Tailwind CSS.",
         "- Built reusable frontend components and integrated REST APIs.",
         "",
