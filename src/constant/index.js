@@ -141,7 +141,7 @@ const techStack = [
   },
   {
     category: "Other",
-    items: ["E-commerce", "Shopify", "Client Communication"],
+    items: ["E-commerce", "Shopify", "Client Communication", "closing", "meta ads"],
   },
 ];
 

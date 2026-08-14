@@ -18,7 +18,7 @@ const Resume = ({ windowKey }) => {
 
       {/* ── HTML Resume Document ──────────────────────────────── */}
       <div className="overflow-auto flex justify-center p-4 sm:p-8" style={{ maxHeight: "calc(100vh - 120px)" }}>
-        <div className="bg-white dark:bg-[#252525] w-full max-w-[800px] min-h-[1056px] shadow-sm ring-1 ring-gray-900/5 dark:ring-white/10 p-8 sm:p-12 text-gray-800 dark:text-gray-300 text-[13px] leading-relaxed font-sans select-text">
+        <div className="bg-white dark:bg-[#252525] w-full max-w-[800px] h-full shadow-sm ring-1 ring-gray-900/5 dark:ring-white/10 p-8 sm:p-12 text-gray-800 dark:text-gray-300 text-[13px] leading-relaxed font-sans select-text">
 
           {/* Header */}
           <div className="text-center mb-6 border-b border-gray-300 dark:border-gray-700 pb-4">
@@ -107,41 +107,199 @@ const Resume = ({ windowKey }) => {
 
           {/* Selected Projects */}
           <div className="mb-5">
-            <h3 className="text-[14px] font-bold text-gray-900 dark:text-white uppercase border-b-2 border-gray-800 dark:border-gray-400 pb-1 mb-2">Selected Projects</h3>
+            <h3 className="text-[14px] font-bold text-gray-900 dark:text-white uppercase border-b-2 border-gray-800 dark:border-gray-400 pb-1 mb-2">
+              Selected Projects
+            </h3>
 
             <div className="mb-2">
-              <span className="font-bold text-gray-900 dark:text-white">Healthora</span> — Healthcare Appointment & Management Platform
-              <span className="text-gray-600 dark:text-gray-400 italic"> (React.js, Tailwind CSS, Express.js, MySQL)</span>
+              <div>
+                <span className="font-bold text-gray-900 dark:text-white">
+                  Healthora
+                </span>{" "}
+                — Healthcare Appointment & Management Platform
+              </div>
+
+              <a
+                href="https://healthoraweb.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-blue-600 dark:text-blue-400 text-[11px] hover:underline mb-1"
+              >
+                https://healthoraweb.netlify.app/
+              </a>
+              <a
+                href="https://healthora-portal-client.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-blue-600 dark:text-blue-400 text-[11px] hover:underline mb-1"
+              >
+                https://healthora-portal-client.vercel.app/
+              </a>
+
+              <span className="text-gray-600 dark:text-gray-400 italic">
+                (React.js, Tailwind CSS, Express.js, MySQL)
+              </span>
+
               <ul className="list-disc list-inside space-y-0.5 ml-1 mt-1 text-justify">
-                <li>Built a full-stack healthcare management platform for doctor-patient appointment management.</li>
-                <li>Developed both the frontend and backend, including API integration and database functionality.</li>
+                <li>
+                  Built a full-stack healthcare management platform for doctor-patient
+                  appointment management.
+                </li>
+                <li>
+                  Developed both the frontend and backend, including API integration and
+                  database functionality.
+                </li>
               </ul>
             </div>
 
             <div className="mb-2">
-              <span className="font-bold text-gray-900 dark:text-white">RiseManager</span> — COD Order Management Platform
-              <span className="text-gray-600 dark:text-gray-400 italic"> (React.js, Tailwind CSS)</span>
+              <div>
+                <span className="font-bold text-gray-900 dark:text-white">
+                  RiseManager
+                </span>{" "}
+                — COD Order Management Platform
+              </div>
+
+              <a
+                href="https://risemanager.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-blue-600 dark:text-blue-400 text-[11px] hover:underline mb-1"
+              >
+                https://risemanager.vercel.app/
+              </a>
+
+              <span className="text-gray-600 dark:text-gray-400 italic">
+                (React.js, Tailwind CSS)
+              </span>
+
               <ul className="list-disc list-inside space-y-0.5 ml-1 mt-1 text-justify">
-                <li>Developed a landing page designed to manage, confirm, and deliver Cash on Delivery (COD) orders.</li>
+                <li>
+                  Developed a landing page designed to manage, confirm, and deliver Cash
+                  on Delivery (COD) orders.
+                </li>
               </ul>
             </div>
 
             <div className="mb-2">
-              <span className="font-bold text-gray-900 dark:text-white">Unik</span> — Cosmetics Brand Website
-              <span className="text-gray-600 dark:text-gray-400 italic"> (React.js, Tailwind CSS, JavaScript)</span>
+              <div>
+                <span className="font-bold text-gray-900 dark:text-white">
+                  Unik
+                </span>{" "}
+                — Cosmetics Brand Website
+              </div>
+
+              <a
+                href="https://unik-eosin.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-blue-600 dark:text-blue-400 text-[11px] hover:underline mb-1"
+              >
+                https://unik-eosin.vercel.app/
+              </a>
+
+              <span className="text-gray-600 dark:text-gray-400 italic">
+                (React.js, Tailwind CSS, JavaScript)
+              </span>
+
               <ul className="list-disc list-inside space-y-0.5 ml-1 mt-1 text-justify">
-                <li>Developed a modern responsive website for a cosmetics brand with reusable frontend components.</li>
+                <li>
+                  Developed a modern responsive website for a cosmetics brand with
+                  reusable frontend components.
+                </li>
               </ul>
             </div>
 
             <div className="mb-2">
-              <span className="font-bold text-gray-900 dark:text-white">Baytee</span> — Hotel Booking Platform
-              <span className="text-gray-600 dark:text-gray-400 italic"> (React.js, Tailwind CSS, JavaScript)</span>
+              <div>
+                <span className="font-bold text-gray-900 dark:text-white">
+                  Baytee
+                </span>{" "}
+                — Hotel Booking Platform
+              </div>
+
+              <a
+                href="https://baytee.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-blue-600 dark:text-blue-400 text-[11px] hover:underline mb-1"
+              >
+                https://baytee.vercel.app/
+              </a>
+
+              <span className="text-gray-600 dark:text-gray-400 italic">
+                (React.js, Tailwind CSS, JavaScript)
+              </span>
+
               <ul className="list-disc list-inside space-y-0.5 ml-1 mt-1 text-justify">
-                <li>Developed a responsive hotel booking platform focused on presenting accommodation information.</li>
+                <li>
+                  Developed a responsive hotel booking platform focused on presenting
+                  accommodation information.
+                </li>
               </ul>
             </div>
 
+            <div className="mb-2">
+              <div>
+                <span className="font-bold text-gray-900 dark:text-white">
+                  Carvo
+                </span>{" "}
+                — Automotive Web Project
+              </div>
+
+              <a
+                href="http://carvo-mocha.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-blue-600 dark:text-blue-400 text-[11px] hover:underline mb-1"
+              >
+                http://carvo-mocha.vercel.app/
+              </a>
+
+              <span className="text-gray-600 dark:text-gray-400 italic">
+                (React.js, Tailwind CSS, JavaScript)
+              </span>
+
+              <ul className="list-disc list-inside space-y-0.5 ml-1 mt-1 text-justify">
+                <li>
+                  Developed a responsive automotive-focused web interface using React.js
+                  and Tailwind CSS.
+                </li>
+              </ul>
+            </div>
+
+            <div className="mb-2">
+              <div>
+                <span className="font-bold text-gray-900 dark:text-white">
+                  Artigiano DZ
+                </span>{" "}
+                — E-commerce Project
+              </div>
+
+              <a
+                href="https://www.instagram.com/artigianodz/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-blue-600 dark:text-blue-400 text-[11px] hover:underline mb-1"
+              >
+                https://www.instagram.com/artigianodz/
+              </a>
+
+              <span className="text-gray-600 dark:text-gray-400 italic">
+                (E-commerce, Web Development, Meta Ads)
+              </span>
+
+              <ul className="list-disc list-inside space-y-0.5 ml-1 mt-1 text-justify">
+                <li>
+                  Built and developed an online presence for a footwear e-commerce
+                  business.
+                </li>
+                <li>
+                  Worked on website development, product presentation, and digital
+                  marketing.
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* Education & Languages */}

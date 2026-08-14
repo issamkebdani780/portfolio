@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "./componenets/NavBar";
 import Welcome from "./componenets/Welcome";
 import Dock from "./componenets/Dock";
@@ -9,24 +9,34 @@ import {
   FinderWindow,
   TerminalWindow,
   PhotosWindow,
+  TxtFileWindow,
+  ImgFileWindow,
 } from "./componenets/Windows";
 import Safari from "./componenets/Safari";
 import Resume from "./componenets/Resume";
-import TxtFileWindow from "./windows/text";
-import ImgFileWindow from "./windows/Image";
 import Contact from "./componenets/Conatct";
 
 // Wrap window content components with HOC
 const FinderWithWrapper = windowWrapper(FinderWindow);
 const PhotosWithWrapper = windowWrapper(PhotosWindow);
 const TerminalWithWrapper = windowWrapper(TerminalWindow);
+const TxtFileWithWrapper = windowWrapper(TxtFileWindow);
+const ImgFileWithWrapper = windowWrapper(ImgFileWindow);
 
 const App = () => {
   const windows = useWindowsStore((state) => state.windows);
   const [theme, setTheme] = useState("dark");
 
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme]);
+
   return (
-    <main className={`w-screen h-screen overflow-hidden relative select-none font-georama ${theme === "dark" ? "dark" : ""}`}>
+    <main className="w-screen h-screen overflow-hidden relative select-none font-georama">
       {/* macOS Top Navigation Bar */}
       <NavBar theme={theme} setTheme={setTheme} />
 
@@ -50,16 +60,14 @@ const App = () => {
       {/* Resume — self-contained customFrame with HTML layout */}
       <Resume windowKey="resume" title="Resume.pdf" customFrame={true} windowStyle={{ width: 700 }} />
 
-      <TxtFileWindow
+      <TxtFileWithWrapper
         windowKey="txtfile"
         title={windows.txtfile?.data?.name || "Document"}
-        customFrame={true}
       />
 
-      <ImgFileWindow
+      <ImgFileWithWrapper
         windowKey="imgfile"
         title={windows.imgfile?.data?.name || "Image Preview"}
-        customFrame={true}
       />
 
       {/* macOS Dock */}

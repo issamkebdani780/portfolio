@@ -93,44 +93,53 @@ const NavBar = ({ theme = "dark", setTheme }) => {
         />
 
         {/* Control Center / Theme Switcher Icon */}
-        <button
-          onClick={() => setIsModeOpen((prev) => !prev)}
-          className={`p-1 rounded transition-colors ${isModeOpen ? "bg-white/30 dark:bg-white/20" : "hover:bg-white/20 dark:hover:bg-white/10"
-            }`}
-          title="Control Center"
-        >
-          <img
-            src="/icons/mode.svg"
-            alt="mode"
-            className="w-4 h-4 cursor-pointer dark:invert"
-          />
-        </button>
+        <div className="relative">
+          <button
+            onClick={() => setIsModeOpen((prev) => !prev)}
+            className={`p-1 rounded transition-colors ${isModeOpen ? "bg-white/30 dark:bg-white/20" : "hover:bg-white/20 dark:hover:bg-white/10"
+              }`}
+            title="Control Center"
+          >
+            <img
+              src="/icons/mode.svg"
+              alt="mode"
+              className="w-4 h-4 cursor-pointer dark:invert"
+            />
+          </button>
 
-        {/* Theme Dropdown Menu */}
-        {isModeOpen && (
-          <div className="absolute top-8 right-0 w-44 bg-white/70 dark:bg-gray-900/80 backdrop-blur-2xl border border-gray-200/50 dark:border-gray-700/50 rounded-xl shadow-2xl p-1.5 z-50 text-xs font-medium animate-fadeIn">
-            <button
-              onClick={() => handleThemeChange("light")}
-              className={`w-full flex items-center justify-between px-3 py-1.5 rounded-lg text-left transition-colors ${theme === "light"
-                  ? "bg-blue-500 text-white font-semibold"
-                  : "text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800/60"
-                }`}
-            >
-              <span>Light Mode</span>
-              {theme === "light" && <span>✓</span>}
-            </button>
-            <button
-              onClick={() => handleThemeChange("dark")}
-              className={`w-full flex items-center justify-between px-3 py-1.5 rounded-lg text-left transition-colors mt-0.5 ${theme === "dark"
-                  ? "bg-blue-500 text-white font-semibold"
-                  : "text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800/60"
-                }`}
-            >
-              <span>Dark Mode</span>
-              {theme === "dark" && <span>✓</span>}
-            </button>
-          </div>
-        )}
+          {/* Theme Dropdown Menu */}
+          {isModeOpen && (
+            <div className="absolute top-9 left-1/2 -translate-x-1/2 w-[150px] flex flex-col items-center z-50 animate-fadeIn">
+              {/* Arrow SVG */}
+              <svg width="18" height="9" viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative top-[1px] z-20">
+                <path d="M9 0L18 9H0L9 0Z" className="fill-[#e4e5f1]/90 dark:fill-[#252525]/90" />
+              </svg>
+              
+              <div className="w-full bg-[#e4e5f1]/90 dark:bg-[#252525]/90 backdrop-blur-3xl border border-white/60 dark:border-white/10 rounded-[10px] shadow-[0_10px_40px_rgba(0,0,0,0.2)] p-1.5 flex flex-col gap-0.5 relative z-10">
+                <button
+                  onClick={() => handleThemeChange("light")}
+                  className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-[6px] text-left transition-colors ${theme === "light"
+                      ? "bg-[#007aff] text-white"
+                      : "text-gray-800 dark:text-gray-200 hover:bg-black/5 dark:hover:bg-white/10"
+                    }`}
+                >
+                  <span className="text-[12.5px] font-medium tracking-wide">Light Mode</span>
+                  {theme === "light" && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-3.5 h-3.5"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>}
+                </button>
+                <button
+                  onClick={() => handleThemeChange("dark")}
+                  className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-[6px] text-left transition-colors ${theme === "dark"
+                      ? "bg-[#007aff] text-white"
+                      : "text-gray-800 dark:text-gray-200 hover:bg-black/5 dark:hover:bg-white/10"
+                    }`}
+                >
+                  <span className="text-[12.5px] font-medium tracking-wide">Dark Mode</span>
+                  {theme === "dark" && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-3.5 h-3.5"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>}
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
 
         {/* Live Date Time Display */}
         <time className="text-xs font-semibold text-gray-900 dark:text-white tracking-tight ml-1">

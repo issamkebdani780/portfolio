@@ -302,11 +302,11 @@ export const PhotosWindow = () => {
       </div>
 
       {/* Header */}
-      <div className="px-3 sm:px-5 pt-3 sm:pt-4 pb-2 border-b border-gray-100 dark:border-gray-800">
+      {/* <div className="px-3 sm:px-5 pt-3 sm:pt-4 pb-2 border-b border-gray-100 dark:border-gray-800">
         <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
           Certifications &amp; Licenses — {licenses.length} items
         </p>
-      </div>
+      </div> */}
 
       {/* Grid */}
       {!activeTab.selected ? (
