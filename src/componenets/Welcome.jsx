@@ -20,22 +20,22 @@ const Welcome = () => {
         { opacity: 0, y: 35, filter: "blur(6px)" },
         { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.9, stagger: 0.12 }
       )
-      // Staggered reveal for cursive portfolio letters
-      .fromTo(
-        titleLettersRef.current,
-        { opacity: 0, y: 50, scale: 0.6, rotate: -6, filter: "blur(8px)" },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          rotate: 0,
-          filter: "blur(0px)",
-          duration: 1.1,
-          stagger: 0.05,
-          ease: "back.out(1.6)",
-        },
-        "-=0.5"
-      );
+        // Staggered reveal for cursive portfolio letters
+        .fromTo(
+          titleLettersRef.current,
+          { opacity: 0, y: 50, scale: 0.6, rotate: -6, filter: "blur(8px)" },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            rotate: 0,
+            filter: "blur(0px)",
+            duration: 1.1,
+            stagger: 0.05,
+            ease: "back.out(1.6)",
+          },
+          "-=0.5"
+        );
 
       // Gentle floating idle animation for the title letters after entrance
       gsap.to(titleLettersRef.current, {

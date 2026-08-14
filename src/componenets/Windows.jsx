@@ -261,11 +261,10 @@ export const PhotosWindow = () => {
             <div
               key={tab.id}
               onClick={() => setActiveTabId(tab.id)}
-              className={`group relative flex items-center gap-1 sm:gap-1.5 min-w-[72px] sm:min-w-[100px] max-w-[110px] sm:max-w-[160px] shrink-0 px-2 sm:px-3 py-1 sm:py-1.5 rounded-t-lg cursor-pointer select-none transition-colors ${
-                isActive
+              className={`group relative flex items-center gap-1 sm:gap-1.5 min-w-[72px] sm:min-w-[100px] max-w-[110px] sm:max-w-[160px] shrink-0 px-2 sm:px-3 py-1 sm:py-1.5 rounded-t-lg cursor-pointer select-none transition-colors ${isActive
                   ? "bg-white dark:bg-[#1c1c1e] text-gray-800 dark:text-gray-100"
                   : "bg-gray-200/70 dark:bg-[#252527] text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-[#2a2a2c]"
-              }`}
+                }`}
             >
               {tab.selected && (
                 <img
@@ -342,7 +341,7 @@ export const PhotosWindow = () => {
         <div className="flex-1 flex flex-col overflow-hidden min-h-0">
           <div className="flex items-center gap-2 px-3 sm:px-4 py-2 border-b border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-[#252525]">
             <button
-              onClick={() => closeTab(activeTab.id, { stopPropagation: () => {} })}
+              onClick={() => closeTab(activeTab.id, { stopPropagation: () => { } })}
               className="flex items-center gap-1 text-[11px] sm:text-[12px] text-blue-500 hover:text-blue-600 transition-colors cursor-pointer focus:outline-none shrink-0"
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className="w-3 h-3 sm:w-3.5 sm:h-3.5">

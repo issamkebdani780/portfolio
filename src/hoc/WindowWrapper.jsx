@@ -150,3 +150,4 @@ export const windowWrapper = (WrappedComponent) => {
 };
 
 export default windowWrapper;
+
