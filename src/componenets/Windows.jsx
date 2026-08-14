@@ -378,8 +378,8 @@ export const ResumeWindow = () => {
           Open or download the resume to learn more about my education and experience.
         </p>
         <a
-          href="/resume.pdf"
-          download
+          href="/Issam_Kebdani_Resume.pdf"
+          download="Issam_Kebdani_Resume.pdf"
           className="inline-block px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm transition-colors shadow"
         >
           Download PDF

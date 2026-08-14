@@ -13,7 +13,17 @@ const Resume = ({ windowKey }) => {
         <span className="absolute left-1/2 -translate-x-1/2 text-[13px] font-semibold text-gray-600 dark:text-gray-300 pointer-events-none">
           Resume.pdf
         </span>
-        <div className="w-4 h-4" />
+        <a
+          href="/Issam_Kebdani_Resume.pdf"
+          download="Issam_Kebdani_Resume.pdf"
+          className="flex items-center gap-1.5 px-3 py-1 text-[11.5px] font-medium bg-blue-600 hover:bg-blue-700 active:scale-95 text-white rounded-md transition-all shadow-sm cursor-pointer z-10"
+          title="Download PDF"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className="w-3.5 h-3.5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+          </svg>
+          <span className="hidden xs:inline">Download</span>
+        </a>
       </div>
 
       {/* ── HTML Resume Document ──────────────────────────────── */}
@@ -28,7 +38,19 @@ const Resume = ({ windowKey }) => {
               className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover shadow-md border-2 border-blue-500/30 flex-shrink-0"
             />
             <div className="flex-1">
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-white uppercase tracking-wide mb-1">Issam Kebdani</h1>
+              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-1">
+                <h1 className="text-3xl font-bold text-gray-900 dark:text-white uppercase tracking-wide">Issam Kebdani</h1>
+                <a
+                  href="/Issam_Kebdani_Resume.pdf"
+                  download="Issam_Kebdani_Resume.pdf"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/50 hover:bg-blue-100 dark:hover:bg-blue-900/60 rounded-lg transition-colors border border-blue-200 dark:border-blue-800/60 self-center sm:self-auto"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className="w-3.5 h-3.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                  </svg>
+                  <span>Download PDF</span>
+                </a>
+              </div>
               <h2 className="text-[15px] font-medium text-blue-600 dark:text-blue-400 mb-2">Junior Full-Stack Web Developer</h2>
               <div className="text-gray-600 dark:text-gray-400 text-[12px] flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-1">
                 <span>Algeria</span>
