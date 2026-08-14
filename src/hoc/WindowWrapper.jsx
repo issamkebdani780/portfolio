@@ -132,7 +132,7 @@ export const windowWrapper = (WrappedComponent) => {
                             className={`drag-handle-${windowKey} cursor-move relative flex items-center justify-between px-4 py-3 bg-gray-50 dark:bg-[#2c2c2e] border-b border-gray-200 dark:border-gray-700 select-none text-sm text-gray-400`}
                         >
                             <WindowControle appId={windowKey} />
-                            <h2 className="absolute left-1/2 -translate-x-1/2 text-[13px] font-semibold text-zinc-600 dark:text-zinc-300">
+                            <h2 className="absolute left-1/2 -translate-x-1/2 text-[13px] font-semibold text-zinc-600 dark:text-zinc-300 pointer-events-none">
                                 {title}
                             </h2>
                             <div className="w-14" />

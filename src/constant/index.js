@@ -68,9 +68,9 @@ const dockApps = [
   },
   {
     id: "trash",
-    name: "Archive",
+    name: "Trash",
     icon: "trash.png",
-    canOpen: false,
+    canOpen: true,
   },
 ];
 
@@ -510,7 +510,37 @@ const TRASH_LOCATION = {
   name: "Trash",
   icon: "/icons/trash.svg",
   kind: "folder",
-  children: [],
+  children: [
+    {
+      id: 1,
+      name: "old_portfolio_v1.txt",
+      icon: "/images/txt.png",
+      kind: "file",
+      fileType: "txt",
+      position: "top-5 left-8",
+      subtitle: "Old Draft (Deprecated)",
+      description: [
+        "Portfolio Version 1.0 (2024)",
+        "Deprecated design and older project drafts.",
+        "Moved to Trash.",
+      ],
+    },
+    {
+      id: 2,
+      name: "bugs_fixed.txt",
+      icon: "/images/txt.png",
+      kind: "file",
+      fileType: "txt",
+      position: "top-5 left-48",
+      subtitle: "Resolved Issues",
+      description: [
+        "All previous bugs have been resolved! 🚀",
+        "- Fixed light/dark mode sync across all windows",
+        "- Added license & certification showcase",
+        "- Optimized responsive performance",
+      ],
+    }
+  ],
 };
 
 const locations = {

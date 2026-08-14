@@ -21,20 +21,27 @@ const Resume = ({ windowKey }) => {
         <div className="bg-white dark:bg-[#252525] w-full max-w-[800px] h-full shadow-sm ring-1 ring-gray-900/5 dark:ring-white/10 p-8 sm:p-12 text-gray-800 dark:text-gray-300 text-[13px] leading-relaxed font-sans select-text">
 
           {/* Header */}
-          <div className="text-center mb-6 border-b border-gray-300 dark:border-gray-700 pb-4">
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white uppercase tracking-wide mb-1">Issam Kebdani</h1>
-            <h2 className="text-[15px] font-medium text-blue-600 dark:text-blue-400 mb-2">Junior Full-Stack Web Developer</h2>
-            <div className="text-gray-600 dark:text-gray-400 text-[12px] flex flex-wrap justify-center gap-x-4 gap-y-1">
-              <span>Algeria</span>
-              <span>•</span>
-              <span>+213 781 24 39 66</span>
-              <span>•</span>
-              <a href="mailto:kebdaniissam780@gmail.com" className="hover:text-blue-500 transition-colors">kebdaniissam780@gmail.com</a>
-            </div>
-            <div className="text-gray-600 dark:text-gray-400 text-[12px] flex flex-wrap justify-center gap-x-4 gap-y-1 mt-1">
-              <a href="https://linkedin.com/in/issam-kebdani-8b6154334" target="_blank" rel="noreferrer" className="hover:text-blue-500 transition-colors">linkedin.com/in/issam-kebdani-8b6154334</a>
-              <span>•</span>
-              <a href="https://github.com/issamkebdani780" target="_blank" rel="noreferrer" className="hover:text-blue-500 transition-colors">github.com/issamkebdani780</a>
+          <div className="flex flex-col sm:flex-row items-center gap-6 mb-6 border-b border-gray-300 dark:border-gray-700 pb-6 text-center sm:text-left">
+            <img
+              src="/me.jpg"
+              alt="Issam Kebdani"
+              className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover shadow-md border-2 border-blue-500/30 flex-shrink-0"
+            />
+            <div className="flex-1">
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white uppercase tracking-wide mb-1">Issam Kebdani</h1>
+              <h2 className="text-[15px] font-medium text-blue-600 dark:text-blue-400 mb-2">Junior Full-Stack Web Developer</h2>
+              <div className="text-gray-600 dark:text-gray-400 text-[12px] flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-1">
+                <span>Algeria</span>
+                <span>•</span>
+                <span>+213 781 24 39 66</span>
+                <span>•</span>
+                <a href="mailto:kebdaniissam780@gmail.com" className="hover:text-blue-500 transition-colors">kebdaniissam780@gmail.com</a>
+              </div>
+              <div className="text-gray-600 dark:text-gray-400 text-[12px] flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-1 mt-1">
+                <a href="https://linkedin.com/in/issam-kebdani-8b6154334" target="_blank" rel="noreferrer" className="hover:text-blue-500 transition-colors">linkedin.com/in/issam-kebdani-8b6154334</a>
+                <span>•</span>
+                <a href="https://github.com/issamkebdani780" target="_blank" rel="noreferrer" className="hover:text-blue-500 transition-colors">github.com/issamkebdani780</a>
+              </div>
             </div>
           </div>
 

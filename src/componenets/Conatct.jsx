@@ -72,9 +72,9 @@ const Contact = ({ windowKey }) => {
         {/* Avatar */}
         <div className="mb-5 self-start">
           <img
-            src="/images/contact.png"
-            alt="Profile"
-            className="w-16 h-16 rounded-full object-cover border-2 border-gray-200 shadow-sm"
+            src="/me.jpg"
+            alt="Issam Kebdani"
+            className="w-16 h-16 rounded-full object-cover border-2 border-gray-200 dark:border-gray-700 shadow-sm"
           />
         </div>
 

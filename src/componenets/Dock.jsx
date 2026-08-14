@@ -3,8 +3,9 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
-import { dockApps } from "../constant";
+import { dockApps, locations } from "../constant";
 import { useWindowsStore } from "../store/window";
+import useLocationStore from "../store/location";
 
 const BASE_SIZE = 56;
 const MAX_SIZE = 84;
@@ -16,6 +17,7 @@ const Dock = () => {
   const openWindow = useWindowsStore((state) => state.openWindow);
   const minimizeWindow = useWindowsStore((state) => state.minimizeWindow);
   const focusWindow = useWindowsStore((state) => state.focusWindow);
+  const setActiveLocation = useLocationStore((state) => state.setActiveLocation);
 
   const dockRef = useRef(null);
   const iconRefs = useRef([]);
@@ -113,6 +115,17 @@ const Dock = () => {
         }
       }
 
+      if (app.id === "trash") {
+        setActiveLocation(locations.trash);
+        const finderWin = windows.finder;
+        if (!finderWin?.isOpen) {
+          openWindow("finder");
+        } else {
+          focusWindow("finder");
+        }
+        return;
+      }
+
       if (app.canOpen) {
         if (!isOpen) {
           openWindow(app.id);
@@ -125,11 +138,11 @@ const Dock = () => {
         }
       }
     },
-    [windows, activeWindow, openWindow, focusWindow, minimizeWindow]
+    [windows, activeWindow, openWindow, focusWindow, minimizeWindow, setActiveLocation]
   );
 
-  // Find the separator index (before Trash / last non-openable app)
-  const separatorIndex = dockApps.findIndex((app) => !app.canOpen);
+  // Separator is before the last item (Trash)
+  const separatorIndex = dockApps.length - 1;
 
   return (
     <>

@@ -37,7 +37,7 @@ const WindowControle = ({ appId }) => {
       </button>
 
       {/* Maximize/Zoom button (Green) */}
-      <button
+      {/* <button
         onClick={(e) => {
           e.stopPropagation();
           toggleMaximize(appId);
@@ -48,7 +48,7 @@ const WindowControle = ({ appId }) => {
         <span className="opacity-0 group-hover/controls:opacity-100 text-[8px] text-[#014c00] font-extrabold select-none absolute">
           ＋
         </span>
-      </button>
+      </button> */}
     </div>
   );
 };
