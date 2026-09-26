@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 import { navLinks } from "../constant";
 import { useWindowsStore } from "../store/window";
 
-const NavBar = ({ theme = "light", setTheme }) => {
+const NavBar = ({ theme = "light", setTheme, onToggleMobile }) => {
   const activeWindow = useWindowsStore((state) => state.activeWindow);
   const openWindow = useWindowsStore((state) => state.openWindow);
 
@@ -71,6 +71,17 @@ const NavBar = ({ theme = "light", setTheme }) => {
 
       {/* Right Menu Section: Status Icons & Live Clock */}
       <div className="flex items-center gap-3.5 relative" ref={dropdownRef}>
+        {/* Switch to iOS Mobile View Button */}
+        {onToggleMobile && (
+          <button
+            onClick={onToggleMobile}
+            className="flex items-center gap-1 px-2 py-0.5 rounded-md text-xs font-medium bg-black/10 dark:bg-white/10 hover:bg-black/20 dark:hover:bg-white/20 transition-all text-gray-800 dark:text-gray-100"
+            title="Switch to Mobile iOS Mode"
+          >
+            <span>📱</span>
+            <span className="hidden sm:inline">Mobile View</span>
+          </button>
+        )}
         {/* Wifi Icon */}
         <img
           src="/icons/wifi.svg"

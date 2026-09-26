@@ -37,6 +37,7 @@ export const windowWrapper = (WrappedComponent) => {
             const dragInstance = Draggable.create(windowRef.current, {
                 trigger: triggerSelector,
                 type: "x,y",
+                bounds: document.body,
                 edgeResistance: 0.65,
                 onPress: () => {
                     focusWindow(windowKey);
@@ -91,10 +92,12 @@ export const windowWrapper = (WrappedComponent) => {
 
         const isActive = activeWindow === windowKey;
 
-        // Apply absolute positioning and dynamic styling
+        // Apply responsive absolute positioning and dynamic styling
         const windowStyles = {
             position: "absolute",
             zIndex: zIndex,
+            maxWidth: "calc(100vw - 24px)",
+            maxHeight: "calc(100vh - 100px)",
             ...windowStyle,
             ...(isMaximized
                 ? {
@@ -102,6 +105,8 @@ export const windowWrapper = (WrappedComponent) => {
                     left: 0,
                     width: "100vw",
                     height: "calc(100vh - 32px - 80px)",
+                    maxWidth: "100vw",
+                    maxHeight: "none",
                     transform: "none",
                 }
                 : {}),

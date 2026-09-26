@@ -69,19 +69,11 @@ body {
   }
 
   #welcome {
-    @apply text-gray-200 flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none max-sm:h-screen max-sm:w-full max-sm:px-10;
-
-    .small-screen {
-      @apply sm:hidden m-7 bg-red-300/20 backdrop-blur-lg p-3 rounded-md absolute top-10;
-
-      p {
-        @apply flex-1 text-[16px] text-center font-roboto text-gray-400;
-      }
-    }
+    @apply text-gray-200 flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none;
   }
 
   #dock {
-    @apply absolute bottom-5 left-1/2 -translate-x-1/2 z-50 select-none max-sm:hidden;
+    @apply absolute bottom-5 left-1/2 -translate-x-1/2 z-50 select-none;
 
     .dock-container {
       @apply bg-white/20 backdrop-blur-md justify-between rounded-2xl p-1.5 flex items-end gap-1.5;
@@ -134,7 +126,7 @@ body {
   }
 
   #safari {
-    @apply w-4xl absolute top-40 left-2/12 bg-white dark:bg-[#1c1c1e] shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+    @apply w-4xl max-w-[calc(100vw-24px)] absolute top-28 left-4 sm:left-2/12 bg-white dark:bg-[#1c1c1e] shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
     .search {
       @apply flex items-center gap-3 w-2/3 bg-white dark:bg-[#2c2c2e] border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2;
@@ -178,7 +170,7 @@ body {
   }
 
   #terminal {
-    @apply w-3xl absolute top-32 left-1/12 bg-white dark:bg-[#1a1a1a] shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+    @apply w-3xl max-w-[calc(100vw-24px)] absolute top-28 left-4 sm:left-1/12 bg-white dark:bg-[#1a1a1a] shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
     h2 {
       @apply font-bold text-sm text-center w-full;
@@ -224,7 +216,7 @@ body {
   }
 
   #contact {
-    @apply max-w-2xl absolute top-60 left-5/12 bg-white dark:bg-[#1c1c1e] shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+    @apply max-w-2xl max-w-[calc(100vw-24px)] absolute top-32 left-4 sm:left-5/12 bg-white dark:bg-[#1c1c1e] shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
     h2 {
       @apply font-bold text-sm text-center w-full dark:text-white;
@@ -322,10 +314,10 @@ body {
   }
 
   #finder {
-    @apply absolute w-3xl left-40 top-20 shadow-2xl drop-shadow-2xl overflow-hidden rounded-xl;
+    @apply absolute w-3xl max-w-[calc(100vw-24px)] left-4 sm:left-40 top-20 shadow-2xl drop-shadow-2xl overflow-hidden rounded-xl;
 
     .sidebar {
-      @apply w-48 bg-gray-50 dark:bg-[#252525] border-r border-gray-200 dark:border-gray-700 flex flex-col p-5 space-y-3;
+      @apply w-40 sm:w-48 bg-gray-50 dark:bg-[#252525] border-r border-gray-200 dark:border-gray-700 flex flex-col p-4 sm:p-5 space-y-3 shrink-0;
 
       h3 {
         @apply text-xs font-medium text-gray-400 mb-1;
@@ -343,13 +335,13 @@ body {
         }
 
         li {
-          @apply flex items-center gap-2 px-3 py-2 rounded-md cursor-pointer transition-colors;
+          @apply flex items-center gap-2 px-3 py-2 rounded-md cursor-pointer transition-colors text-xs sm:text-sm;
         }
       }
     }
 
     .content {
-      @apply flex-1 p-8 bg-white dark:bg-[#1c1c1e] max-w-2xl relative;
+      @apply flex-1 p-4 sm:p-8 bg-white dark:bg-[#1c1c1e] max-w-2xl relative overflow-auto;
 
       li {
         @apply absolute flex items-center flex-col gap-3;
@@ -366,7 +358,7 @@ body {
   }
 
   #txtfile {
-    @apply w-md absolute top-36 right-32 bg-white dark:bg-[#1c1c1e] shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+    @apply w-md max-w-[calc(100vw-24px)] absolute top-28 right-4 sm:right-32 bg-white dark:bg-[#1c1c1e] shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
     h2 {
       @apply font-bold text-sm text-center w-full dark:text-white;
@@ -374,7 +366,7 @@ body {
   }
 
   #imgfile {
-    @apply w-xl absolute top-40 left-2/12 bg-white dark:bg-[#1c1c1e] shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+    @apply w-xl max-w-[calc(100vw-24px)] absolute top-28 left-4 sm:left-2/12 bg-white dark:bg-[#1c1c1e] shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
     #window-header {
       p {
@@ -392,7 +384,7 @@ body {
   }
 
   #home {
-    @apply relative z-0 max-sm:hidden;
+    @apply relative z-0;
 
     ul {
       li {

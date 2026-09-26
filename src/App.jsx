@@ -16,6 +16,8 @@ import Safari from "./componenets/Safari";
 import Resume from "./componenets/Resume";
 import Contact from "./componenets/Conatct";
 
+import MobileOS from "./componenets/MobileOS";
+
 // Wrap window content components with HOC
 const FinderWithWrapper = windowWrapper(FinderWindow);
 const PhotosWithWrapper = windowWrapper(PhotosWindow);
@@ -26,6 +28,13 @@ const ImgFileWithWrapper = windowWrapper(ImgFileWindow);
 const App = () => {
   const windows = useWindowsStore((state) => state.windows);
   const [theme, setTheme] = useState("light");
+  const [isMobileScreen, setIsMobileScreen] = useState(() => {
+    if (typeof window !== "undefined") {
+      return window.innerWidth < 768;
+    }
+    return false;
+  });
+  const [forceView, setForceView] = useState(null); // null | "mobile" | "desktop"
 
   useEffect(() => {
     if (theme === "dark") {
@@ -35,10 +44,36 @@ const App = () => {
     }
   }, [theme]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileScreen(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const showMobile = forceView !== null ? forceView === "mobile" : isMobileScreen;
+
+  if (showMobile) {
+    return (
+      <main className="w-screen h-screen overflow-hidden relative select-none font-georama bg-black">
+        <MobileOS
+          theme={theme}
+          setTheme={setTheme}
+          onSwitchToDesktop={() => setForceView("desktop")}
+        />
+      </main>
+    );
+  }
+
   return (
     <main className="w-screen h-screen overflow-hidden relative select-none font-georama">
       {/* macOS Top Navigation Bar */}
-      <NavBar theme={theme} setTheme={setTheme} />
+      <NavBar
+        theme={theme}
+        setTheme={setTheme}
+        onToggleMobile={() => setForceView("mobile")}
+      />
 
       {/* Main Desktop Center Content */}
       <Welcome />
@@ -52,7 +87,7 @@ const App = () => {
       <PhotosWithWrapper
         windowKey="photos"
         title="Gallery"
-        windowStyle={{ width: 620, height: 560, top: 430, left: 140 }}
+        windowStyle={{ width: 620, height: 560, top: 120, left: 100 }}
       />
       <TerminalWithWrapper windowKey="terminal" title="Terminal" />
       <Contact windowKey="contact" title="Contact Me" customFrame={true} windowStyle={{ width: 540 }} />

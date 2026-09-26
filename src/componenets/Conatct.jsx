@@ -53,8 +53,7 @@ const contactActions = [
 const Contact = ({ windowKey }) => {
   return (
     <div
-      className="flex flex-col bg-white dark:bg-[#1c1c1e] rounded-xl overflow-hidden shadow-2xl"
-      style={{ width: 540 }}
+      className="flex flex-col bg-white dark:bg-[#1c1c1e] rounded-xl overflow-hidden shadow-2xl w-full max-w-[540px]"
     >
       {/* ── macOS Title Bar ───────────────────────────────────── */}
       <div
@@ -90,7 +89,7 @@ const Contact = ({ windowKey }) => {
         </p>
 
         {/* Action Buttons */}
-        <div className="flex items-stretch gap-3 w-full">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 w-full">
           {contactActions.map((action) => (
             <a
               key={action.id}
@@ -98,7 +97,7 @@ const Contact = ({ windowKey }) => {
               target={action.href.startsWith("http") ? "_blank" : undefined}
               rel={action.href.startsWith("http") ? "noreferrer" : undefined}
               onClick={(e) => e.stopPropagation()}
-              className="flex-1 flex flex-col items-start justify-between gap-2 rounded-xl px-3 py-3 h-[92px] text-white font-semibold text-[12px] leading-tight transition-all duration-200 hover:brightness-105 hover:-translate-y-0.5 active:scale-95 shadow-sm"
+              className="flex flex-col items-start justify-between gap-2 rounded-xl p-3 h-[92px] text-white font-semibold text-[12px] leading-tight transition-all duration-200 hover:brightness-105 hover:-translate-y-0.5 active:scale-95 shadow-sm"
               style={{ backgroundColor: action.bg }}
             >
               {action.icon}
