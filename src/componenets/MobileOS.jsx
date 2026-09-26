@@ -302,7 +302,7 @@ export const MobileOS = ({ theme = "light", setTheme }) => {
               </div>
 
               {/* Bottom Area: Search Pill + Dock */}
-              <div className="relative z-10 flex flex-col items-center gap-4">
+              <div className="relative z-10 flex flex-col items-center gap-3 pb-2">
                 {/* Search Pill */}
                 <button
                   onClick={() => navigateTo("work")}
@@ -313,56 +313,56 @@ export const MobileOS = ({ theme = "light", setTheme }) => {
                 </button>
 
                 {/* iOS Dock Bar with Desktop Icons */}
-                <div className="w-full bg-white/25 dark:bg-white/15 backdrop-blur-2xl border border-white/25 rounded-[32px] p-2.5 flex items-center justify-around shadow-2xl">
+                <div className="w-full bg-white/25 dark:bg-white/15 backdrop-blur-2xl border border-white/25 rounded-[28px] px-3 py-2.5 flex items-center justify-around shadow-2xl">
                   {/* Dock 1: Finder / Portfolio */}
                   <button
                     onClick={() => navigateTo("work")}
-                    className="w-13 h-13 flex items-center justify-center active:scale-90 transition-transform"
+                    className="w-14 h-14 flex items-center justify-center active:scale-90 transition-transform"
                     title="Portfolio"
                   >
                     <img
                       src="/images/finder.png"
                       alt="Portfolio"
-                      className="w-full h-full object-contain drop-shadow"
+                      className="w-12 h-12 object-contain drop-shadow"
                     />
                   </button>
 
                   {/* Dock 2: Safari / Experience */}
                   <button
                     onClick={() => navigateTo("experience")}
-                    className="w-13 h-13 flex items-center justify-center active:scale-90 transition-transform"
+                    className="w-14 h-14 flex items-center justify-center active:scale-90 transition-transform"
                     title="Experience"
                   >
                     <img
                       src="/images/safari.png"
                       alt="Experience"
-                      className="w-full h-full object-contain drop-shadow"
+                      className="w-12 h-12 object-contain drop-shadow"
                     />
                   </button>
 
                   {/* Dock 3: Photos / Licenses */}
                   <button
                     onClick={() => navigateTo("licenses")}
-                    className="w-13 h-13 flex items-center justify-center active:scale-90 transition-transform"
+                    className="w-14 h-14 flex items-center justify-center active:scale-90 transition-transform"
                     title="Licenses"
                   >
                     <img
                       src="/images/photos.png"
                       alt="Licenses"
-                      className="w-full h-full object-contain drop-shadow"
+                      className="w-12 h-12 object-contain drop-shadow"
                     />
                   </button>
 
                   {/* Dock 4: Contacts */}
                   <button
                     onClick={() => navigateTo("contact")}
-                    className="w-13 h-13 flex items-center justify-center active:scale-90 transition-transform"
+                    className="w-14 h-14 flex items-center justify-center active:scale-90 transition-transform"
                     title="Contact"
                   >
                     <img
                       src="/images/contact.png"
                       alt="Contact"
-                      className="w-full h-full object-contain drop-shadow"
+                      className="w-12 h-12 object-contain drop-shadow"
                     />
                   </button>
                 </div>
@@ -1115,8 +1115,9 @@ export const MobileOS = ({ theme = "light", setTheme }) => {
         {/* ── Document Modal Sheet (For Reading Project .txt details) ─ */}
         {selectedTxt && (
           <div className="absolute inset-0 z-50 bg-black/60 backdrop-blur-sm flex flex-col justify-end animate-fadeIn">
-            <div className="w-full max-h-[80%] bg-white dark:bg-[#1c1c1e] rounded-t-3xl p-5 flex flex-col shadow-2xl">
-              <div className="flex items-center justify-between pb-3 border-b border-gray-200 dark:border-zinc-800">
+            <div className="w-full max-h-[80%] min-h-0 bg-white dark:bg-[#1c1c1e] rounded-t-3xl flex flex-col shadow-2xl overflow-hidden">
+              {/* Header */}
+              <div className="flex items-center justify-between px-5 py-4 border-b border-gray-200 dark:border-zinc-800 shrink-0">
                 <div className="flex items-center gap-2">
                   <img src="/images/txt.png" alt="" className="w-5 h-5 object-contain" />
                   <span className="text-sm font-bold text-gray-900 dark:text-white">
@@ -1125,13 +1126,14 @@ export const MobileOS = ({ theme = "light", setTheme }) => {
                 </div>
                 <button
                   onClick={() => setSelectedTxt(null)}
-                  className="p-1 rounded-full bg-gray-100 dark:bg-zinc-800 text-gray-500 dark:text-gray-400"
+                  className="p-1 rounded-full bg-gray-100 dark:bg-zinc-800 text-gray-500 dark:text-gray-400 active:scale-90"
                 >
                   <X className="w-4 h-4" />
                 </button>
               </div>
 
-              <div className="flex-1 overflow-y-auto py-4 space-y-2 text-xs text-gray-700 dark:text-gray-300 leading-relaxed font-mono">
+              {/* Scrollable content */}
+              <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-5 py-4 space-y-3 text-[12.5px] text-gray-700 dark:text-gray-300 leading-relaxed font-mono">
                 {Array.isArray(selectedTxt.description) ? (
                   selectedTxt.description.map((paragraph, idx) => (
                     <p key={idx}>{paragraph}</p>
@@ -1140,6 +1142,9 @@ export const MobileOS = ({ theme = "light", setTheme }) => {
                   <p>{selectedTxt.description}</p>
                 )}
               </div>
+
+              {/* Bottom safe area */}
+              <div className="shrink-0 h-4 bg-white dark:bg-[#1c1c1e]" />
             </div>
           </div>
         )}
